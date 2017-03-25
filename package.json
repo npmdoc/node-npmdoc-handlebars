@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"handlebars",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "handlebars",
+    "description": "api documentation for [handlebars (v4.0.6)](http://www.handlebarsjs.com/) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-handlebars.svg)](https://travis-ci.org/npmdoc/node-npmdoc-handlebars)",
     "devDependencies": {
-        "handlebars": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "handlebars": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-handlebars",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-handlebars",
+    "keywords": [
+        "documentation",
+        "handlebars"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_handlebars.js",
+    "name": "npmdoc-handlebars",
+    "nameAlias": "npmdoc_handlebars",
+    "nameOriginal": "npmdoc-handlebars",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-handlebars.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
