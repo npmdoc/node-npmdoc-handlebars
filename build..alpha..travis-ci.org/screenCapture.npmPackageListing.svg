@@ -1,0 +1,122 @@
+<svg height="1902" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1902" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  0.  2017-04-04 11:35:15 +0000  2490539 byte  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-04 11:35:15 +0000     3912 byte  CONTRIBUTING.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-04 11:35:15 +0000     3768 byte  FAQ.md</tspan>
+<tspan x="10" y="74">  3.  2017-04-04 11:35:15 +0000     1063 byte  LICENSE</tspan>
+<tspan x="10" y="90">  4.  2017-04-04 11:35:15 +0000     8732 byte  README.markdown</tspan>
+<tspan x="10" y="106">  5.  2017-04-04 11:35:15 +0000     3363 byte  bin/handlebars</tspan>
+<tspan x="10" y="122">  6.  2017-04-04 11:35:15 +0000     4374 byte  dist/amd/handlebars.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-04 11:35:15 +0000     3877 byte  dist/amd/handlebars.runtime.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-04 11:35:15 +0000     8573 byte  dist/amd/handlebars/base.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-04 11:35:15 +0000     3414 byte  dist/amd/handlebars/compiler/ast.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-04 11:35:15 +0000     2878 byte  dist/amd/handlebars/compiler/base.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-04 11:35:15 +0000    16094 byte  dist/amd/handlebars/compiler/code-gen.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-04 11:35:15 +0000    59338 byte  dist/amd/handlebars/compiler/compiler.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-04 11:35:15 +0000    19772 byte  dist/amd/handlebars/compiler/helpers.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-04 11:35:15 +0000   117724 byte  dist/amd/handlebars/compiler/javascript-compiler.\</tspan>
+<tspan x="10" y="266">js</tspan>
+<tspan x="10" y="282"> 15.  2017-04-04 11:35:15 +0000   208963 byte  dist/amd/handlebars/compiler/parser.js</tspan>
+<tspan x="10" y="298"> 16.  2017-04-04 11:35:15 +0000    18425 byte  dist/amd/handlebars/compiler/printer.js</tspan>
+<tspan x="10" y="314"> 17.  2017-04-04 11:35:15 +0000    12677 byte  dist/amd/handlebars/compiler/visitor.js</tspan>
+<tspan x="10" y="330"> 18.  2017-04-04 11:35:15 +0000    23407 byte  dist/amd/handlebars/compiler/whitespace-control.j\</tspan>
+<tspan x="10" y="346">s</tspan>
+<tspan x="10" y="362"> 19.  2017-04-04 11:35:15 +0000     1012 byte  dist/amd/handlebars/decorators.js</tspan>
+<tspan x="10" y="378"> 20.  2017-04-04 11:35:15 +0000     2690 byte  dist/amd/handlebars/decorators/inline.js</tspan>
+<tspan x="10" y="394"> 21.  2017-04-04 11:35:15 +0000     4645 byte  dist/amd/handlebars/exception.js</tspan>
+<tspan x="10" y="410"> 22.  2017-04-04 11:35:15 +0000     2763 byte  dist/amd/handlebars/helpers.js</tspan>
+<tspan x="10" y="426"> 23.  2017-04-04 11:35:15 +0000     3835 byte  dist/amd/handlebars/helpers/block-helper-missing.\</tspan>
+<tspan x="10" y="442">js</tspan>
+<tspan x="10" y="458"> 24.  2017-04-04 11:35:15 +0000     8259 byte  dist/amd/handlebars/helpers/each.js</tspan>
+<tspan x="10" y="474"> 25.  2017-04-04 11:35:15 +0000     1966 byte  dist/amd/handlebars/helpers/helper-missing.js</tspan>
+<tspan x="10" y="490"> 26.  2017-04-04 11:35:15 +0000     3353 byte  dist/amd/handlebars/helpers/if.js</tspan>
+<tspan x="10" y="506"> 27.  2017-04-04 11:35:15 +0000     2526 byte  dist/amd/handlebars/helpers/log.js</tspan>
+<tspan x="10" y="522"> 28.  2017-04-04 11:35:15 +0000      851 byte  dist/amd/handlebars/helpers/lookup.js</tspan>
+<tspan x="10" y="538"> 29.  2017-04-04 11:35:15 +0000     3076 byte  dist/amd/handlebars/helpers/with.js</tspan>
+<tspan x="10" y="554"> 30.  2017-04-04 11:35:15 +0000     3867 byte  dist/amd/handlebars/logger.js</tspan>
+<tspan x="10" y="570"> 31.  2017-04-04 11:35:15 +0000     1587 byte  dist/amd/handlebars/no-conflict.js</tspan>
+<tspan x="10" y="586"> 32.  2017-04-04 11:35:15 +0000    33749 byte  dist/amd/handlebars/runtime.js</tspan>
+<tspan x="10" y="602"> 33.  2017-04-04 11:35:15 +0000     1163 byte  dist/amd/handlebars/safe-string.js</tspan>
+<tspan x="10" y="618"> 34.  2017-04-04 11:35:15 +0000    10490 byte  dist/amd/handlebars/utils.js</tspan>
+<tspan x="10" y="634"> 35.  2017-04-04 11:35:15 +0000    29185 byte  dist/amd/precompiler.js</tspan>
+<tspan x="10" y="650"> 36.  2017-04-04 11:35:15 +0000     4640 byte  dist/cjs/handlebars.js</tspan>
+<tspan x="10" y="666"> 37.  2017-04-04 11:35:15 +0000     4592 byte  dist/cjs/handlebars.runtime.js</tspan>
+<tspan x="10" y="682"> 38.  2017-04-04 11:35:15 +0000     8385 byte  dist/cjs/handlebars/base.js</tspan>
+<tspan x="10" y="698"> 39.  2017-04-04 11:35:15 +0000     3371 byte  dist/cjs/handlebars/compiler/ast.js</tspan>
+<tspan x="10" y="714"> 40.  2017-04-04 11:35:15 +0000     3289 byte  dist/cjs/handlebars/compiler/base.js</tspan>
+<tspan x="10" y="730"> 41.  2017-04-04 11:35:15 +0000    15805 byte  dist/cjs/handlebars/compiler/code-gen.js</tspan>
+<tspan x="10" y="746"> 42.  2017-04-04 11:35:15 +0000    58396 byte  dist/cjs/handlebars/compiler/compiler.js</tspan>
+<tspan x="10" y="762"> 43.  2017-04-04 11:35:15 +0000    19366 byte  dist/cjs/handlebars/compiler/helpers.js</tspan>
+<tspan x="10" y="778"> 44.  2017-04-04 11:35:15 +0000   115878 byte  dist/cjs/handlebars/compiler/javascript-compiler.\</tspan>
+<tspan x="10" y="794">js</tspan>
+<tspan x="10" y="810"> 45.  2017-04-04 11:35:15 +0000   206014 byte  dist/cjs/handlebars/compiler/parser.js</tspan>
+<tspan x="10" y="826"> 46.  2017-04-04 11:35:15 +0000    18117 byte  dist/cjs/handlebars/compiler/printer.js</tspan>
+<tspan x="10" y="842"> 47.  2017-04-04 11:35:15 +0000    12501 byte  dist/cjs/handlebars/compiler/visitor.js</tspan>
+<tspan x="10" y="858"> 48.  2017-04-04 11:35:15 +0000    23081 byte  dist/cjs/handlebars/compiler/whitespace-control.j\</tspan>
+<tspan x="10" y="874">s</tspan>
+<tspan x="10" y="890"> 49.  2017-04-04 11:35:15 +0000      990 byte  dist/cjs/handlebars/decorators.js</tspan>
+<tspan x="10" y="906"> 50.  2017-04-04 11:35:15 +0000     2678 byte  dist/cjs/handlebars/decorators/inline.js</tspan>
+<tspan x="10" y="922"> 51.  2017-04-04 11:35:15 +0000     4577 byte  dist/cjs/handlebars/exception.js</tspan>
+<tspan x="10" y="938"> 52.  2017-04-04 11:35:15 +0000     2909 byte  dist/cjs/handlebars/helpers.js</tspan>
+<tspan x="10" y="954"> 53.  2017-04-04 11:35:15 +0000     3769 byte  dist/cjs/handlebars/helpers/block-helper-missing.\</tspan>
+<tspan x="10" y="970">js</tspan>
+<tspan x="10" y="986"> 54.  2017-04-04 11:35:15 +0000     8103 byte  dist/cjs/handlebars/helpers/each.js</tspan>
+<tspan x="10" y="1002"> 55.  2017-04-04 11:35:15 +0000     1975 byte  dist/cjs/handlebars/helpers/helper-missing.js</tspan>
+<tspan x="10" y="1018"> 56.  2017-04-04 11:35:15 +0000     3329 byte  dist/cjs/handlebars/helpers/if.js</tspan>
+<tspan x="10" y="1034"> 57.  2017-04-04 11:35:15 +0000     2497 byte  dist/cjs/handlebars/helpers/log.js</tspan>
+<tspan x="10" y="1050"> 58.  2017-04-04 11:35:15 +0000      846 byte  dist/cjs/handlebars/helpers/lookup.js</tspan>
+<tspan x="10" y="1066"> 59.  2017-04-04 11:35:15 +0000     2998 byte  dist/cjs/handlebars/helpers/with.js</tspan>
+<tspan x="10" y="1082"> 60.  2017-04-04 11:35:15 +0000     3826 byte  dist/cjs/handlebars/logger.js</tspan>
+<tspan x="10" y="1098"> 61.  2017-04-04 11:35:15 +0000     1570 byte  dist/cjs/handlebars/no-conflict.js</tspan>
+<tspan x="10" y="1114"> 62.  2017-04-04 11:35:15 +0000    33627 byte  dist/cjs/handlebars/runtime.js</tspan>
+<tspan x="10" y="1130"> 63.  2017-04-04 11:35:15 +0000     1150 byte  dist/cjs/handlebars/safe-string.js</tspan>
+<tspan x="10" y="1146"> 64.  2017-04-04 11:35:15 +0000    10231 byte  dist/cjs/handlebars/utils.js</tspan>
+<tspan x="10" y="1162"> 65.  2017-04-04 11:35:15 +0000    29180 byte  dist/cjs/precompiler.js</tspan>
+<tspan x="10" y="1178"> 66.  2017-04-04 11:35:15 +0000   568837 byte  dist/handlebars.amd.js</tspan>
+<tspan x="10" y="1194"> 67.  2017-04-04 11:35:15 +0000    73745 byte  dist/handlebars.amd.min.js</tspan>
+<tspan x="10" y="1210"> 68.  2017-04-04 11:35:15 +0000   163357 byte  dist/handlebars.js</tspan>
+<tspan x="10" y="1226"> 69.  2017-04-04 11:35:15 +0000    75510 byte  dist/handlebars.min.js</tspan>
+<tspan x="10" y="1242"> 70.  2017-04-04 11:35:15 +0000    99876 byte  dist/handlebars.runtime.amd.js</tspan>
+<tspan x="10" y="1258"> 71.  2017-04-04 11:35:15 +0000    14256 byte  dist/handlebars.runtime.amd.min.js</tspan>
+<tspan x="10" y="1274"> 72.  2017-04-04 11:35:15 +0000    37869 byte  dist/handlebars.runtime.js</tspan>
+<tspan x="10" y="1290"> 73.  2017-04-04 11:35:15 +0000    16863 byte  dist/handlebars.runtime.min.js</tspan>
+<tspan x="10" y="1306"> 74.  2017-04-04 11:35:15 +0000     8374 byte  docs/compiler-api.md</tspan>
+<tspan x="10" y="1322"> 75.  2017-04-04 11:35:15 +0000     1836 byte  docs/decorators-api.md</tspan>
+<tspan x="10" y="1338"> 76.  2017-04-04 11:35:15 +0000      977 byte  lib/handlebars.js</tspan>
+<tspan x="10" y="1354"> 77.  2017-04-04 11:35:15 +0000      971 byte  lib/handlebars.runtime.js</tspan>
+<tspan x="10" y="1370"> 78.  2017-04-04 11:35:15 +0000     2082 byte  lib/handlebars/base.js</tspan>
+<tspan x="10" y="1386"> 79.  2017-04-04 11:35:15 +0000      946 byte  lib/handlebars/compiler/ast.js</tspan>
+<tspan x="10" y="1402"> 80.  2017-04-04 11:35:15 +0000      670 byte  lib/handlebars/compiler/base.js</tspan>
+<tspan x="10" y="1418"> 81.  2017-04-04 11:35:15 +0000     3836 byte  lib/handlebars/compiler/code-gen.js</tspan>
+<tspan x="10" y="1434"> 82.  2017-04-04 11:35:15 +0000    15191 byte  lib/handlebars/compiler/compiler.js</tspan>
+<tspan x="10" y="1450"> 83.  2017-04-04 11:35:15 +0000     4758 byte  lib/handlebars/compiler/helpers.js</tspan>
+<tspan x="10" y="1466"> 84.  2017-04-04 11:35:15 +0000    32202 byte  lib/handlebars/compiler/javascript-compiler.js</tspan>
+<tspan x="10" y="1482"> 85.  2017-04-04 11:35:15 +0000    34953 byte  lib/handlebars/compiler/parser.js</tspan>
+<tspan x="10" y="1498"> 86.  2017-04-04 11:35:15 +0000     4212 byte  lib/handlebars/compiler/printer.js</tspan>
+<tspan x="10" y="1514"> 87.  2017-04-04 11:35:15 +0000     3214 byte  lib/handlebars/compiler/visitor.js</tspan>
+<tspan x="10" y="1530"> 88.  2017-04-04 11:35:15 +0000     6273 byte  lib/handlebars/compiler/whitespace-control.js</tspan>
+<tspan x="10" y="1546"> 89.  2017-04-04 11:35:15 +0000      136 byte  lib/handlebars/decorators.js</tspan>
+<tspan x="10" y="1562"> 90.  2017-04-04 11:35:15 +0000      624 byte  lib/handlebars/decorators/inline.js</tspan>
+<tspan x="10" y="1578"> 91.  2017-04-04 11:35:15 +0000     1169 byte  lib/handlebars/exception.js</tspan>
+<tspan x="10" y="1594"> 92.  2017-04-04 11:35:15 +0000      606 byte  lib/handlebars/helpers.js</tspan>
+<tspan x="10" y="1610"> 93.  2017-04-04 11:35:15 +0000      905 byte  lib/handlebars/helpers/block-helper-missing.js</tspan>
+<tspan x="10" y="1626"> 94.  2017-04-04 11:35:15 +0000     2078 byte  lib/handlebars/helpers/each.js</tspan>
+<tspan x="10" y="1642"> 95.  2017-04-04 11:35:15 +0000      443 byte  lib/handlebars/helpers/helper-missing.js</tspan>
+<tspan x="10" y="1658"> 96.  2017-04-04 11:35:15 +0000      895 byte  lib/handlebars/helpers/if.js</tspan>
+<tspan x="10" y="1674"> 97.  2017-04-04 11:35:15 +0000      524 byte  lib/handlebars/helpers/log.js</tspan>
+<tspan x="10" y="1690"> 98.  2017-04-04 11:35:15 +0000      133 byte  lib/handlebars/helpers/lookup.js</tspan>
+<tspan x="10" y="1706"> 99.  2017-04-04 11:35:15 +0000      713 byte  lib/handlebars/helpers/with.js</tspan>
+<tspan x="10" y="1722">100.  2017-04-04 11:35:15 +0000      925 byte  lib/handlebars/logger.js</tspan>
+<tspan x="10" y="1738">101.  2017-04-04 11:35:15 +0000      369 byte  lib/handlebars/no-conflict.js</tspan>
+<tspan x="10" y="1754">102.  2017-04-04 11:35:15 +0000     8704 byte  lib/handlebars/runtime.js</tspan>
+<tspan x="10" y="1770">103.  2017-04-04 11:35:15 +0000      229 byte  lib/handlebars/safe-string.js</tspan>
+<tspan x="10" y="1786">104.  2017-04-04 11:35:15 +0000     2660 byte  lib/handlebars/utils.js</tspan>
+<tspan x="10" y="1802">105.  2017-04-04 11:35:15 +0000      792 byte  lib/index.js</tspan>
+<tspan x="10" y="1818">106.  2017-04-04 11:35:15 +0000     7347 byte  lib/precompiler.js</tspan>
+<tspan x="10" y="1834">107.  2017-04-04 11:35:15 +0000     3709 byte  package.json</tspan>
+<tspan x="10" y="1850">108.  2017-04-04 11:35:15 +0000     2775 byte  print-script</tspan>
+<tspan x="10" y="1866">109.  2017-04-04 11:35:15 +0000    40767 byte  release-notes.md</tspan>
+<tspan x="10" y="1882">110.  2017-04-04 11:35:15 +0000      167 byte  runtime.js</tspan>
+</text>
+</svg>

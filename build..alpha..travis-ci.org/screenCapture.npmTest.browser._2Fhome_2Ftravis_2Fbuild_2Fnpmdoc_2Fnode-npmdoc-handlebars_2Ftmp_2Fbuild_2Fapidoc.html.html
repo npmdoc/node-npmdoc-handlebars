@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://www.handlebarsjs.com/"
-
-    >handlebars (v4.0.6)</a>
+    <a href="http://www.handlebarsjs.com/">handlebars (v4.0.6)</a>
 </h1>
 <h4>Handlebars provides the power necessary to let you build semantic templates effectively with no frustration</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.handlebars">module handlebars</a><ol>
 
@@ -2204,20 +2197,20 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Exception(message, node) {
-  var loc = node &#x26;&#x26; node.loc,
+  var loc = node &amp;&amp; node.loc,
       line = undefined,
       column = undefined;
   if (loc) {
     line = loc.start.line;
     column = loc.start.column;
 
-    message += &#x27; - &#x27; + line + &#x27;:&#x27; + column;
+    message += ' - ' + line + ':' + column;
   }
 
   var tmp = Error.prototype.constructor.call(this, message);
 
-  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn&#x27;t work.
-  for (var idx = 0; idx &#x3c; errorProps.length; idx++) {
+  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
+  for (var idx = 0; idx &lt; errorProps.length; idx++) {
     this[errorProps[idx]] = tmp[errorProps[idx]];
   }
 
@@ -2230,10 +2223,10 @@
     if (loc) {
       this.lineNumber = line;
 
-      // Work around issue under safari where we can&#x27;t directly set the column value
+      // Work around issue under safari where we can't directly set the column value
       /* istanbul ignore next */
       if (Object.defineProperty) {
-        Object.defineProperty(this, &#x27;column&#x27;, { value: column });
+        Object.defineProperty(this, 'column', { value: column });
       } else {
         this.column = column;
       }
@@ -2340,18 +2333,18 @@ the template into a function. The generated function takes a context
 argument, which will be used to render the template.
 
 ```js
-var source = &#x22;&#x3c;p&#x3e;Hello, my name is function <span class="apidocSignatureSpan">handlebars.</span>compile. I am from {{hometown}}. I have &#x22; +
-             &#x22;{{kids.length}} kids:&#x3c;/p&#x3e;&#x22; +
-             &#x22;&#x3c;ul&#x3e;{{#kids}}&#x3c;li&#x3e;function <span class="apidocSignatureSpan">handlebars.</span>compile is {{age}}&#x3c;/li&#x3e;{{/kids}}&#x3c;/ul&#x3e;&#x22;;
+var source = "&lt;p&gt;Hello, my name is function <span class="apidocSignatureSpan">handlebars.</span>compile. I am from {{hometown}}. I have " +
+             "{{kids.length}} kids:&lt;/p&gt;" +
+             "&lt;ul&gt;{{#kids}}&lt;li&gt;function <span class="apidocSignatureSpan">handlebars.</span>compile is {{age}}&lt;/li&gt;{{/kids}}&lt;/ul&gt;";
 var template = Handlebars.<span class="apidocCodeKeywordSpan">compile</span>(source);
 
-var data = { &#x22;name&#x22;: &#x22;Alan&#x22;, &#x22;hometown&#x22;: &#x22;Somewhere, TX&#x22;,
-             &#x22;kids&#x22;: [{&#x22;name&#x22;: &#x22;Jimmy&#x22;, &#x22;age&#x22;: &#x22;12&#x22;}, {&#x22;name&#x22;: &#x22
-;Sally&#x22;, &#x22;age&#x22;: &#x22;4&#x22;}]};
+var data = { "name": "Alan", "hometown": "Somewhere, TX",
+             "kids": [{"name": "Jimmy", "age": "12"}, {"name": "
+;Sally", "age": "4"}]};
 var result = template(data);
 
 // Would render:
-// &#x3c;p&#x3e;Hello, my name is Alan. I am from Somewhere, TX. I have 2 kids:&#x3c;/p&#x3e;
+// &lt;p&gt;Hello, my name is Alan. I am from Somewhere, TX. I have 2 kids:&lt;/p&gt;
 ...</pre></li>
     </ul>
 
@@ -2374,9 +2367,9 @@ var result = template(data);
     return _handlebarsCompilerCompiler.precompile(input, options, hb);
   };
 
-  hb.AST = _handlebarsCompilerAst2[&#x27;default&#x27;];
+  hb.AST = _handlebarsCompilerAst2['default'];
   hb.Compiler = _handlebarsCompilerCompiler.Compiler;
-  hb.JavaScriptCompiler = _handlebarsCompilerJavascriptCompiler2[&#x27;default&#x27;];
+  hb.JavaScriptCompiler = _handlebarsCompilerJavascriptCompiler2['default'];
   hb.Parser = _handlebarsCompilerBase.parser;
   hb.parse = _handlebarsCompilerBase.parse;
 
@@ -2412,20 +2405,20 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function escapeExpression(string) {
-  if (typeof string !== &#x27;string&#x27;) {
-    // don&#x27;t escape SafeStrings, since they&#x27;re already safe
-    if (string &#x26;&#x26; string.toHTML) {
+  if (typeof string !== 'string') {
+    // don't escape SafeStrings, since they're already safe
+    if (string &amp;&amp; string.toHTML) {
       return string.toHTML();
     } else if (string == null) {
-      return &#x27;&#x27;;
+      return '';
     } else if (!string) {
-      return string + &#x27;&#x27;;
+      return string + '';
     }
 
     // Force a string conversion as this will be done by the append regardless and
     // the regex test will do this transparently behind the scenes, causing issues if
-    // an object&#x27;s to string has escaped characters in it.
-    string = &#x27;&#x27; + string;
+    // an object's to string has escaped characters in it.
+    string = '' + string;
   }
 
   if (!possible.test(string)) {
@@ -2448,14 +2441,14 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function log(level) {
   level = logger.lookupLevel(level);
 
-  if (typeof console !== &#x27;undefined&#x27; &#x26;&#x26; logger.lookupLevel(logger.level) &#x3c;= level) {
+  if (typeof console !== 'undefined' &amp;&amp; logger.lookupLevel(logger.level) &lt;= level) {
     var method = logger.methodMap[level];
     if (!console[method]) {
       // eslint-disable-line no-console
-      method = &#x27;log&#x27;;
+      method = 'log';
     }
 
-    for (var _len = arguments.length, message = Array(_len &#x3e; 1 ? _len - 1 : 0), _key = 1; _key &#x3c; _len; _key++) {
+    for (var _len = arguments.length, message = Array(_len &gt; 1 ? _len - 1 : 0), _key = 1; _key &lt; _len; _key++) {
       message[_key - 1] = arguments[_key];
     }
 
@@ -2494,19 +2487,19 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parse(input, options) {
   // Just return if an already-compiled AST was passed in.
-  if (input.type === &#x27;Program&#x27;) {
+  if (input.type === 'Program') {
     return input;
   }
 
-  _parser2[&#x27;default&#x27;].yy = yy;
+  _parser2['default'].yy = yy;
 
   // Altering the shared object here, but this is ok as parser is a sync operation
   yy.locInfo = function (locInfo) {
-    return new yy.SourceLocation(options &#x26;&#x26; options.srcName, locInfo);
+    return new yy.SourceLocation(options &amp;&amp; options.srcName, locInfo);
   };
 
-  var strip = new _whitespaceControl2[&#x27;default&#x27;](options);
-  return strip.accept(_parser2[&#x27;default&#x27;].parse(input));
+  var strip = new _whitespaceControl2['default'](options);
+  return strip.accept(_parser2['default'].parse(input));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2632,34 +2625,34 @@ var result = template(data);
   var program = block.program,
       inverse = block.inverse;
 
-  program = program &#x26;&#x26; this.compileProgram(program);
-  inverse = inverse &#x26;&#x26; this.compileProgram(inverse);
+  program = program &amp;&amp; this.compileProgram(program);
+  inverse = inverse &amp;&amp; this.compileProgram(inverse);
 
   var type = this.classifySexpr(block);
 
-  if (type === &#x27;helper&#x27;) {
+  if (type === 'helper') {
     this.helperSexpr(block, program, inverse);
-  } else if (type === &#x27;simple&#x27;) {
+  } else if (type === 'simple') {
     this.simpleSexpr(block);
 
     // now that the simple mustache is resolved, we need to
     // evaluate it by executing `blockHelperMissing`
-    this.opcode(&#x27;pushProgram&#x27;, program);
-    this.opcode(&#x27;pushProgram&#x27;, inverse);
-    this.opcode(&#x27;emptyHash&#x27;);
-    this.opcode(&#x27;blockValue&#x27;, block.path.original);
+    this.opcode('pushProgram', program);
+    this.opcode('pushProgram', inverse);
+    this.opcode('emptyHash');
+    this.opcode('blockValue', block.path.original);
   } else {
     this.ambiguousSexpr(block, program, inverse);
 
     // now that the simple mustache is resolved, we need to
     // evaluate it by executing `blockHelperMissing`
-    this.opcode(&#x27;pushProgram&#x27;, program);
-    this.opcode(&#x27;pushProgram&#x27;, inverse);
-    this.opcode(&#x27;emptyHash&#x27;);
-    this.opcode(&#x27;ambiguousBlockValue&#x27;);
+    this.opcode('pushProgram', program);
+    this.opcode('pushProgram', inverse);
+    this.opcode('emptyHash');
+    this.opcode('ambiguousBlockValue');
   }
 
-  this.opcode(&#x27;append&#x27;);
+  this.opcode('append');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2674,7 +2667,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function BooleanLiteral(bool) {
-  this.opcode(&#x27;pushLiteral&#x27;, bool.value);
+  this.opcode('pushLiteral', bool.value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2703,7 +2696,7 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function ContentStatement(content) {
   if (content.value) {
-    this.opcode(&#x27;appendContent&#x27;, content.value);
+    this.opcode('appendContent', content.value);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2734,12 +2727,12 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function DecoratorBlock(decorator) {
-  var program = decorator.program &#x26;&#x26; this.compileProgram(decorator.program);
+  var program = decorator.program &amp;&amp; this.compileProgram(decorator.program);
   var params = this.setupFullMustacheParams(decorator, program, undefined),
       path = decorator.path;
 
   this.useDecorators = true;
-  this.opcode(&#x27;registerDecorator&#x27;, params.length, path.original);
+  this.opcode('registerDecorator', params.length, path.original);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2758,15 +2751,15 @@ var result = template(data);
       i = 0,
       l = pairs.length;
 
-  this.opcode(&#x27;pushHash&#x27;);
+  this.opcode('pushHash');
 
-  for (; i &#x3c; l; i++) {
+  for (; i &lt; l; i++) {
     this.pushParam(pairs[i].value);
   }
   while (i--) {
-    this.opcode(&#x27;assignToHash&#x27;, pairs[i].key);
+    this.opcode('assignToHash', pairs[i].key);
   }
-  this.opcode(&#x27;popHash&#x27;);
+  this.opcode('popHash');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2783,10 +2776,10 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function MustacheStatement(mustache) {
   this.SubExpression(mustache);
 
-  if (mustache.escaped &#x26;&#x26; !this.options.noEscape) {
-    this.opcode(&#x27;appendEscaped&#x27;);
+  if (mustache.escaped &amp;&amp; !this.options.noEscape) {
+    this.opcode('appendEscaped');
   } else {
-    this.opcode(&#x27;append&#x27;);
+    this.opcode('append');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2802,7 +2795,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function NullLiteral() {
-  this.opcode(&#x27;pushLiteral&#x27;, &#x27;null&#x27;);
+  this.opcode('pushLiteral', 'null');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2817,7 +2810,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function NumberLiteral(number) {
-  this.opcode(&#x27;pushLiteral&#x27;, number.value);
+  this.opcode('pushLiteral', number.value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2855,32 +2848,32 @@ var result = template(data);
   }
 
   var params = partial.params;
-  if (params.length &#x3e; 1) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;Unsupported number of partial arguments: &#x27; + params.length, partial);
+  if (params.length &gt; 1) {
+    throw new _exception2['default']('Unsupported number of partial arguments: ' + params.length, partial);
   } else if (!params.length) {
     if (this.options.explicitPartialContext) {
-      this.opcode(&#x27;pushLiteral&#x27;, &#x27;undefined&#x27;);
+      this.opcode('pushLiteral', 'undefined');
     } else {
-      params.push({ type: &#x27;PathExpression&#x27;, parts: [], depth: 0 });
+      params.push({ type: 'PathExpression', parts: [], depth: 0 });
     }
   }
 
   var partialName = partial.name.original,
-      isDynamic = partial.name.type === &#x27;SubExpression&#x27;;
+      isDynamic = partial.name.type === 'SubExpression';
   if (isDynamic) {
     this.accept(partial.name);
   }
 
   this.setupFullMustacheParams(partial, program, undefined, true);
 
-  var indent = partial.indent || &#x27;&#x27;;
-  if (this.options.preventIndent &#x26;&#x26; indent) {
-    this.opcode(&#x27;appendContent&#x27;, indent);
-    indent = &#x27;&#x27;;
+  var indent = partial.indent || '';
+  if (this.options.preventIndent &amp;&amp; indent) {
+    this.opcode('appendContent', indent);
+    indent = '';
   }
 
-  this.opcode(&#x27;invokePartial&#x27;, isDynamic, partialName, indent);
-  this.opcode(&#x27;append&#x27;);
+  this.opcode('invokePartial', isDynamic, partialName, indent);
+  this.opcode('append');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2896,22 +2889,22 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function PathExpression(path) {
   this.addDepth(path.depth);
-  this.opcode(&#x27;getContext&#x27;, path.depth);
+  this.opcode('getContext', path.depth);
 
   var name = path.parts[0],
-      scoped = _ast2[&#x27;default&#x27;].helpers.scopedId(path),
-      blockParamId = !path.depth &#x26;&#x26; !scoped &#x26;&#x26; this.blockParamIndex(name);
+      scoped = _ast2['default'].helpers.scopedId(path),
+      blockParamId = !path.depth &amp;&amp; !scoped &amp;&amp; this.blockParamIndex(name);
 
   if (blockParamId) {
-    this.opcode(&#x27;lookupBlockParam&#x27;, blockParamId, path.parts);
+    this.opcode('lookupBlockParam', blockParamId, path.parts);
   } else if (!name) {
     // Context reference, i.e. `{{foo .}}` or `{{foo ..}}`
-    this.opcode(&#x27;pushContext&#x27;);
+    this.opcode('pushContext');
   } else if (path.data) {
     this.options.data = true;
-    this.opcode(&#x27;lookupData&#x27;, path.depth, path.parts, path.strict);
+    this.opcode('lookupData', path.depth, path.parts, path.strict);
   } else {
-    this.opcode(&#x27;lookupOnContext&#x27;, path.parts, path.falsy, path.strict, scoped);
+    this.opcode('lookupOnContext', path.parts, path.falsy, path.strict, scoped);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2931,7 +2924,7 @@ var result = template(data);
 
   var body = program.body,
       bodyLength = body.length;
-  for (var i = 0; i &#x3c; bodyLength; i++) {
+  for (var i = 0; i &lt; bodyLength; i++) {
     this.accept(body[i]);
   }
 
@@ -2955,7 +2948,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function StringLiteral(string) {
-  this.opcode(&#x27;pushString&#x27;, string.value);
+  this.opcode('pushString', string.value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2973,9 +2966,9 @@ var result = template(data);
   transformLiteralToPath(sexpr);
   var type = this.classifySexpr(sexpr);
 
-  if (type === &#x27;simple&#x27;) {
+  if (type === 'simple') {
     this.simpleSexpr(sexpr);
-  } else if (type === &#x27;helper&#x27;) {
+  } else if (type === 'helper') {
     this.helperSexpr(sexpr);
   } else {
     this.ambiguousSexpr(sexpr);
@@ -2994,7 +2987,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function UndefinedLiteral() {
-  this.opcode(&#x27;pushLiteral&#x27;, &#x27;undefined&#x27;);
+  this.opcode('pushLiteral', 'undefined');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3011,7 +3004,7 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function accept(node) {
 <span class="apidocCodeCommentSpan">  /* istanbul ignore next: Sanity code */
 </span>  if (!this[node.type]) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;Unknown type: &#x27; + node.type, node);
+    throw new _exception2['default']('Unknown type: ' + node.type, node);
   }
 
   this.sourceNode.unshift(node);
@@ -3055,15 +3048,15 @@ var result = template(data);
       name = path.parts[0],
       isBlock = program != null || inverse != null;
 
-  this.opcode(&#x27;getContext&#x27;, path.depth);
+  this.opcode('getContext', path.depth);
 
-  this.opcode(&#x27;pushProgram&#x27;, program);
-  this.opcode(&#x27;pushProgram&#x27;, inverse);
+  this.opcode('pushProgram', program);
+  this.opcode('pushProgram', inverse);
 
   path.strict = true;
   this.accept(path);
 
-  this.opcode(&#x27;invokeAmbiguous&#x27;, name, isBlock);
+  this.opcode('invokeAmbiguous', name, isBlock);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3078,10 +3071,10 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function blockParamIndex(name) {
-  for (var depth = 0, len = this.options.blockParams.length; depth &#x3c; len; depth++) {
+  for (var depth = 0, len = this.options.blockParams.length; depth &lt; len; depth++) {
     var blockParams = this.options.blockParams[depth],
-        param = blockParams &#x26;&#x26; _utils.indexOf(blockParams, name);
-    if (blockParams &#x26;&#x26; param &#x3e;= 0) {
+        param = blockParams &amp;&amp; _utils.indexOf(blockParams, name);
+    if (blockParams &amp;&amp; param &gt;= 0) {
       return [depth, param];
     }
   }
@@ -3099,22 +3092,22 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function classifySexpr(sexpr) {
-  var isSimple = _ast2[&#x27;default&#x27;].helpers.simpleId(sexpr.path);
+  var isSimple = _ast2['default'].helpers.simpleId(sexpr.path);
 
-  var isBlockParam = isSimple &#x26;&#x26; !!this.blockParamIndex(sexpr.path.parts[0]);
+  var isBlockParam = isSimple &amp;&amp; !!this.blockParamIndex(sexpr.path.parts[0]);
 
   // a mustache is an eligible helper if:
   // * its id is simple (a single part, not `this` or `..`)
-  var isHelper = !isBlockParam &#x26;&#x26; _ast2[&#x27;default&#x27;].helpers.helperExpression(sexpr);
+  var isHelper = !isBlockParam &amp;&amp; _ast2['default'].helpers.helperExpression(sexpr);
 
   // if a mustache is an eligible helper but not a definite
   // helper, it is ambiguous, and will be resolved in a later
   // pass or at runtime.
-  var isEligible = !isBlockParam &#x26;&#x26; (isHelper || isSimple);
+  var isEligible = !isBlockParam &amp;&amp; (isHelper || isSimple);
 
   // if ambiguous, we can possibly resolve the ambiguity now
   // An eligible helper is one that does not have a complex path, i.e. `this.foo`, `../foo` etc.
-  if (isEligible &#x26;&#x26; !isHelper) {
+  if (isEligible &amp;&amp; !isHelper) {
     var _name2 = sexpr.path.parts[0],
         options = this.options;
 
@@ -3126,11 +3119,11 @@ var result = template(data);
   }
 
   if (isHelper) {
-    return &#x27;helper&#x27;;
+    return 'helper';
   } else if (isEligible) {
-    return &#x27;ambiguous&#x27;;
+    return 'ambiguous';
   } else {
-    return &#x27;simple&#x27;;
+    return 'simple';
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -3158,14 +3151,14 @@ var result = template(data);
   // These changes will propagate to the other compiler components
   var knownHelpers = options.knownHelpers;
   options.knownHelpers = {
-    &#x27;helperMissing&#x27;: true,
-    &#x27;blockHelperMissing&#x27;: true,
-    &#x27;each&#x27;: true,
-    &#x27;if&#x27;: true,
-    &#x27;unless&#x27;: true,
-    &#x27;with&#x27;: true,
-    &#x27;log&#x27;: true,
-    &#x27;lookup&#x27;: true
+    'helperMissing': true,
+    'blockHelperMissing': true,
+    'each': true,
+    'if': true,
+    'unless': true,
+    'with': true,
+    'log': true,
+    'lookup': true
   };
   if (knownHelpers) {
     for (var _name in knownHelpers) {
@@ -3183,18 +3176,18 @@ the template into a function. The generated function takes a context
 argument, which will be used to render the template.
 
 ```js
-var source = &#x22;&#x3c;p&#x3e;Hello, my name is function <span class="apidocSignatureSpan">handlebars.Compiler.prototype.</span>compile. I am from {{hometown}}. I have &#x22; +
-             &#x22;{{kids.length}} kids:&#x3c;/p&#x3e;&#x22; +
-             &#x22;&#x3c;ul&#x3e;{{#kids}}&#x3c;li&#x3e;function <span class="apidocSignatureSpan">handlebars.Compiler.prototype.</span>compile is {{age}}&#x3c;/li&#x3e;{{/kids}}&#x3c;/ul&#x3e;&#x22;;
+var source = "&lt;p&gt;Hello, my name is function <span class="apidocSignatureSpan">handlebars.Compiler.prototype.</span>compile. I am from {{hometown}}. I have " +
+             "{{kids.length}} kids:&lt;/p&gt;" +
+             "&lt;ul&gt;{{#kids}}&lt;li&gt;function <span class="apidocSignatureSpan">handlebars.Compiler.prototype.</span>compile is {{age}}&lt;/li&gt;{{/kids}}&lt;/ul&gt;";
 var template = Handlebars.<span class="apidocCodeKeywordSpan">compile</span>(source);
 
-var data = { &#x22;name&#x22;: &#x22;Alan&#x22;, &#x22;hometown&#x22;: &#x22;Somewhere, TX&#x22;,
-             &#x22;kids&#x22;: [{&#x22;name&#x22;: &#x22;Jimmy&#x22;, &#x22;age&#x22;: &#x22;12&#x22;}, {&#x22;name&#x22;: &#x22
-;Sally&#x22;, &#x22;age&#x22;: &#x22;4&#x22;}]};
+var data = { "name": "Alan", "hometown": "Somewhere, TX",
+             "kids": [{"name": "Jimmy", "age": "12"}, {"name": "
+;Sally", "age": "4"}]};
 var result = template(data);
 
 // Would render:
-// &#x3c;p&#x3e;Hello, my name is Alan. I am from Somewhere, TX. I have 2 kids:&#x3c;/p&#x3e;
+// &lt;p&gt;Hello, my name is Alan. I am from Somewhere, TX. I have 2 kids:&lt;/p&gt;
 ...</pre></li>
     </ul>
 
@@ -3251,7 +3244,7 @@ var result = template(data);
     return false;
   }
 
-  for (var i = 0; i &#x3c; len; i++) {
+  for (var i = 0; i &lt; len; i++) {
     var opcode = this.opcodes[i],
         otherOpcode = other.opcodes[i];
     if (opcode.opcode !== otherOpcode.opcode || !argEquals(opcode.args, otherOpcode.args)) {
@@ -3262,7 +3255,7 @@ var result = template(data);
   // We know that length is the same between the two arrays because they are directly tied
   // to the opcode behavior above.
   len = this.children.length;
-  for (var i = 0; i &#x3c; len; i++) {
+  for (var i = 0; i &lt; len; i++) {
     if (!this.children[i].equals(other.children[i])) {
       return false;
     }
@@ -3288,15 +3281,15 @@ var result = template(data);
       name = path.parts[0];
 
   if (this.options.knownHelpers[name]) {
-    this.opcode(&#x27;invokeKnownHelper&#x27;, params.length, name);
+    this.opcode('invokeKnownHelper', params.length, name);
   } else if (this.options.knownHelpersOnly) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;You specified knownHelpersOnly, but used the unknown helper &#x27; + name, sexpr);
+    throw new _exception2['default']('You specified knownHelpersOnly, but used the unknown helper ' + name, sexpr);
   } else {
     path.strict = true;
     path.falsy = true;
 
     this.accept(path);
-    this.opcode(&#x27;invokeHelper&#x27;, params.length, path.original, _ast2[&#x27;default&#x27;].helpers.simpleId(path));
+    this.opcode('invokeHelper', params.length, path.original, _ast2['default'].helpers.simpleId(path));
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -3327,20 +3320,20 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function pushParam(val) {
-  var value = val.value != null ? val.value : val.original || &#x27;&#x27;;
+  var value = val.value != null ? val.value : val.original || '';
 
   if (this.stringParams) {
     if (value.replace) {
-      value = value.replace(/^(\.?\.\/)*/g, &#x27;&#x27;).replace(/\//g, &#x27;.&#x27;);
+      value = value.replace(/^(\.?\.\/)*/g, '').replace(/\//g, '.');
     }
 
     if (val.depth) {
       this.addDepth(val.depth);
     }
-    this.opcode(&#x27;getContext&#x27;, val.depth || 0);
-    this.opcode(&#x27;pushStringParam&#x27;, value, val.type);
+    this.opcode('getContext', val.depth || 0);
+    this.opcode('pushStringParam', value, val.type);
 
-    if (val.type === &#x27;SubExpression&#x27;) {
+    if (val.type === 'SubExpression') {
       // SubExpressions get evaluated and passed in
       // in string params mode.
       this.accept(val);
@@ -3348,19 +3341,19 @@ var result = template(data);
   } else {
     if (this.trackIds) {
       var blockParamIndex = undefined;
-      if (val.parts &#x26;&#x26; !_ast2[&#x27;default&#x27;].helpers.scopedId(val) &#x26;&#x26; !val.depth) {
+      if (val.parts &amp;&amp; !_ast2['default'].helpers.scopedId(val) &amp;&amp; !val.depth) {
         blockParamIndex = this.blockParamIndex(val.parts[0]);
       }
       if (blockParamIndex) {
-        var blockParamChild = val.parts.slice(1).join(&#x27;.&#x27;);
-        this.opcode(&#x27;pushId&#x27;, &#x27;BlockParam&#x27;, blockParamIndex, blockParamChild);
+        var blockParamChild = val.parts.slice(1).join('.');
+        this.opcode('pushId', 'BlockParam', blockParamIndex, blockParamChild);
       } else {
         value = val.original || value;
         if (value.replace) {
-          value = value.replace(/^this(?:\.|$)/, &#x27;&#x27;).replace(/^\.\//, &#x27;&#x27;).replace(/^\.$/, &#x27;&#x27;);
+          value = value.replace(/^this(?:\.|$)/, '').replace(/^\.\//, '').replace(/^\.$/, '');
         }
 
-        this.opcode(&#x27;pushId&#x27;, val.type, value);
+        this.opcode('pushId', val.type, value);
       }
     }
     this.accept(val);
@@ -3379,7 +3372,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function pushParams(params) {
-  for (var i = 0, l = params.length; i &#x3c; l; i++) {
+  for (var i = 0, l = params.length; i &lt; l; i++) {
     this.pushParam(params[i]);
   }
 }</pre></li>
@@ -3399,13 +3392,13 @@ var result = template(data);
   var params = sexpr.params;
   this.pushParams(params);
 
-  this.opcode(&#x27;pushProgram&#x27;, program);
-  this.opcode(&#x27;pushProgram&#x27;, inverse);
+  this.opcode('pushProgram', program);
+  this.opcode('pushProgram', inverse);
 
   if (sexpr.hash) {
     this.accept(sexpr.hash);
   } else {
-    this.opcode(&#x27;emptyHash&#x27;, omitEmpty);
+    this.opcode('emptyHash', omitEmpty);
   }
 
   return params;
@@ -3426,7 +3419,7 @@ var result = template(data);
   var path = sexpr.path;
   path.strict = true;
   this.accept(path);
-  this.opcode(&#x27;resolvePossibleLambda&#x27;);
+  this.opcode('resolvePossibleLambda');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3495,14 +3488,14 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function log(level) {
   level = logger.lookupLevel(level);
 
-  if (typeof console !== &#x27;undefined&#x27; &#x26;&#x26; logger.lookupLevel(logger.level) &#x3c;= level) {
+  if (typeof console !== 'undefined' &amp;&amp; logger.lookupLevel(logger.level) &lt;= level) {
     var method = logger.methodMap[level];
     if (!console[method]) {
       // eslint-disable-line no-console
-      method = &#x27;log&#x27;;
+      method = 'log';
     }
 
-    for (var _len = arguments.length, message = Array(_len &#x3e; 1 ? _len - 1 : 0), _key = 1; _key &#x3c; _len; _key++) {
+    for (var _len = arguments.length, message = Array(_len &gt; 1 ? _len - 1 : 0), _key = 1; _key &lt; _len; _key++) {
       message[_key - 1] = arguments[_key];
     }
 
@@ -3524,7 +3517,7 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function registerDecorator(name, fn) {
   if (_utils.toString.call(name) === objectType) {
     if (fn) {
-      throw new _exception2[&#x27;default&#x27;](&#x27;Arg not supported with multiple decorators&#x27;);
+      throw new _exception2['default']('Arg not supported with multiple decorators');
     }
     _utils.extend(this.decorators, name);
   } else {
@@ -3546,7 +3539,7 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function registerHelper(name, fn) {
   if (_utils.toString.call(name) === objectType) {
     if (fn) {
-      throw new _exception2[&#x27;default&#x27;](&#x27;Arg not supported with multiple helpers&#x27;);
+      throw new _exception2['default']('Arg not supported with multiple helpers');
     }
     _utils.extend(this.helpers, name);
   } else {
@@ -3569,8 +3562,8 @@ var result = template(data);
   if (_utils.toString.call(name) === objectType) {
     _utils.extend(this.partials, name);
   } else {
-    if (typeof partial === &#x27;undefined&#x27;) {
-      throw new _exception2[&#x27;default&#x27;](&#x27;Attempting to register a partial called &#x22;&#x27; + name + &#x27;&#x22; as undefined&#x27;);
+    if (typeof partial === 'undefined') {
+      throw new _exception2['default']('Attempting to register a partial called "' + name + '" as undefined');
     }
     this.partials[name] = partial;
   }
@@ -3653,7 +3646,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isValidJavaScriptVariableName = function (name) {
-  return !JavaScriptCompiler.RESERVED_WORDS[name] &#x26;&#x26; /^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(name);
+  return !JavaScriptCompiler.RESERVED_WORDS[name] &amp;&amp; /^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(name);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3700,18 +3693,18 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function ambiguousBlockValue() {
-  // We&#x27;re being a bit cheeky and reusing the options value from the prior exec
-  var blockHelperMissing = this.aliasable(&#x27;helpers.blockHelperMissing&#x27;),
+  // We're being a bit cheeky and reusing the options value from the prior exec
+  var blockHelperMissing = this.aliasable('helpers.blockHelperMissing'),
       params = [this.contextName(0)];
-  this.setupHelperArgs(&#x27;&#x27;, 0, params, true);
+  this.setupHelperArgs('', 0, params, true);
 
   this.flushInline();
 
   var current = this.topStack();
   params.splice(1, 0, current);
 
-  this.pushSource([&#x27;if (!&#x27;, this.lastHelper, &#x27;) { &#x27;, current, &#x27; = &#x27;, this.source.functionCall(blockHelperMissing, &#x27;call&#x27;, params
-), &#x27;}&#x27;]);
+  this.pushSource(['if (!', this.lastHelper, ') { ', current, ' = ', this.source.functionCall(blockHelperMissing, 'call', params
+), '}']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3728,15 +3721,15 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function append() {
   if (this.isInline()) {
     this.replaceStack(function (current) {
-      return [&#x27; != null ? &#x27;, current, &#x27; : &#x22;&#x22;&#x27;];
+      return [' != null ? ', current, ' : ""'];
     });
 
     this.pushSource(this.appendToBuffer(this.popStack()));
   } else {
     var local = this.popStack();
-    this.pushSource([&#x27;if (&#x27;, local, &#x27; != null) { &#x27;, this.appendToBuffer(local, undefined, true), &#x27; }&#x27;]);
+    this.pushSource(['if (', local, ' != null) { ', this.appendToBuffer(local, undefined, true), ' }']);
     if (this.environment.isSimple) {
-      this.pushSource([&#x27;else { &#x27;, this.appendToBuffer(&#x22;&#x27;&#x27;&#x22;, undefined, true), &#x27; }&#x27;]);
+      this.pushSource(['else { ', this.appendToBuffer("''", undefined, true), ' }']);
     }
   }
 }</pre></li>
@@ -3774,7 +3767,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function appendEscaped() {
-  this.pushSource(this.appendToBuffer([this.aliasable(&#x27;container.escapeExpression&#x27;), &#x27;(&#x27;, this.popStack(), &#x27;)&#x27;]));
+  this.pushSource(this.appendToBuffer([this.aliasable('container.escapeExpression'), '(', this.popStack(), ')']));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3796,12 +3789,12 @@ var result = template(data);
   source = this.source.wrap(source, location);
 
   if (this.environment.isSimple) {
-    return [&#x27;return &#x27;, source, &#x27;;&#x27;];
+    return ['return ', source, ';'];
   } else if (explicit) {
     // This is a case where the buffer operation occurs as a child of another
     // construct, generally braces. We have to explicitly output these buffer
     // operations to ensure that the emitted code goes in the correct location.
-    return [&#x27;buffer += &#x27;, source, &#x27;;&#x27;];
+    return ['buffer += ', source, ';'];
   } else {
     source.appendToBuffer = true;
     return source;
@@ -3858,14 +3851,14 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function blockValue(name) {
-  var blockHelperMissing = this.aliasable(&#x27;helpers.blockHelperMissing&#x27;),
+  var blockHelperMissing = this.aliasable('helpers.blockHelperMissing'),
       params = [this.contextName(0)];
   this.setupHelperArgs(name, 0, params);
 
   var blockName = this.popStack();
   params.splice(1, 0, blockName);
 
-  this.push(this.source.functionCall(blockHelperMissing, &#x27;call&#x27;, params));
+  this.push(this.source.functionCall(blockHelperMissing, 'call', params));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3916,7 +3909,7 @@ var result = template(data);
       i = undefined,
       l = undefined;
 
-  for (i = 0, l = opcodes.length; i &#x3c; l; i++) {
+  for (i = 0, l = opcodes.length; i &lt; l; i++) {
     opcode = opcodes[i];
 
     this.source.currentLocation = opcode.loc;
@@ -3926,25 +3919,25 @@ var result = template(data);
 
   // Flush any trailing content that might be pending.
   this.source.currentLocation = firstLoc;
-  this.pushSource(&#x27;&#x27;);
+  this.pushSource('');
 
 <span class="apidocCodeCommentSpan">  /* istanbul ignore next */
 </span>  if (this.stackSlot || this.inlineStack.length || this.compileStack.length) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;Compile completed with content left on stack&#x27;);
+    throw new _exception2['default']('Compile completed with content left on stack');
   }
 
   if (!this.decorators.isEmpty()) {
     this.useDecorators = true;
 
-    this.decorators.prepend(&#x27;var decorators = container.decorators;\n&#x27;);
-    this.decorators.push(&#x27;return fn;&#x27;);
+    this.decorators.prepend('var decorators = container.decorators;\n');
+    this.decorators.push('return fn;');
 
     if (asObject) {
-      this.decorators = Function.apply(this, [&#x27;fn&#x27;, &#x27;props&#x27;, &#x27;container&#x27;, &#x27;depth0&#x27;, &#x27;data&#x27;, &#x27;blockParams&#x27;, &#x27;depths&#x27;, this.decorators
+      this.decorators = Function.apply(this, ['fn', 'props', 'container', 'depth0', 'data', 'blockParams', 'depths', this.decorators
 .merge()]);
     } else {
-      this.decorators.prepend(&#x27;function(fn, props, container, depth0, data, blockParams, depths) {\n&#x27;);
-      this.decorators.push(&#x27;}\n&#x27;);
+      this.decorators.prepend('function(fn, props, container, depth0, data, blockParams, depths) {\n');
+      this.decorators.push('}\n');
       this.decorators = this.decorators.merge();
     }
   } else {
@@ -3967,11 +3960,11 @@ var result = template(data);
     var programs = _context.programs;
     var decorators = _context.decorators;
 
-    for (i = 0, l = programs.length; i &#x3c; l; i++) {
+    for (i = 0, l = programs.length; i &lt; l; i++) {
       if (programs[i]) {
         ret[i] = programs[i];
         if (decorators[i]) {
-          ret[i + &#x27;_d&#x27;] = decorators[i];
+          ret[i + '_d'] = decorators[i];
           ret.useDecorators = true;
         }
       }
@@ -4001,7 +3994,7 @@ var result = template(data);
 
       if (options.srcName) {
         ret = ret.toStringWithSourceMap({ file: options.destName });
-        ret.map = ret.map &#x26;&#x26; ret.map.toString();
+        ret.map = ret.map &amp;&amp; ret.map.toString();
       } else {
         ret = ret.toString();
       }
@@ -4019,18 +4012,18 @@ the template into a function. The generated function takes a context
 argument, which will be used to render the template.
 
 ```js
-var source = &#x22;&#x3c;p&#x3e;Hello, my name is function <span class="apidocSignatureSpan">handlebars.JavaScriptCompiler.prototype.</span>compile. I am from {{hometown}}. I have &#x22; +
-             &#x22;{{kids.length}} kids:&#x3c;/p&#x3e;&#x22; +
-             &#x22;&#x3c;ul&#x3e;{{#kids}}&#x3c;li&#x3e;function <span class="apidocSignatureSpan">handlebars.JavaScriptCompiler.prototype.</span>compile is {{age}}&#x3c;/li&#x3e;{{/kids}}&#x3c;/ul&#x3e;&#x22;;
+var source = "&lt;p&gt;Hello, my name is function <span class="apidocSignatureSpan">handlebars.JavaScriptCompiler.prototype.</span>compile. I am from {{hometown}}. I have " +
+             "{{kids.length}} kids:&lt;/p&gt;" +
+             "&lt;ul&gt;{{#kids}}&lt;li&gt;function <span class="apidocSignatureSpan">handlebars.JavaScriptCompiler.prototype.</span>compile is {{age}}&lt;/li&gt;{{/kids}}&lt;/ul&gt;";
 var template = Handlebars.<span class="apidocCodeKeywordSpan">compile</span>(source);
 
-var data = { &#x22;name&#x22;: &#x22;Alan&#x22;, &#x22;hometown&#x22;: &#x22;Somewhere, TX&#x22;,
-             &#x22;kids&#x22;: [{&#x22;name&#x22;: &#x22;Jimmy&#x22;, &#x22;age&#x22;: &#x22;12&#x22;}, {&#x22;name&#x22;: &#x22
-;Sally&#x22;, &#x22;age&#x22;: &#x22;4&#x22;}]};
+var data = { "name": "Alan", "hometown": "Somewhere, TX",
+             "kids": [{"name": "Jimmy", "age": "12"}, {"name": "
+;Sally", "age": "4"}]};
 var result = template(data);
 
 // Would render:
-// &#x3c;p&#x3e;Hello, my name is Alan. I am from Somewhere, TX. I have 2 kids:&#x3c;/p&#x3e;
+// &lt;p&gt;Hello, my name is Alan. I am from Somewhere, TX. I have 2 kids:&lt;/p&gt;
 ...</pre></li>
     </ul>
 
@@ -4048,17 +4041,17 @@ var result = template(data);
       child = undefined,
       compiler = undefined;
 
-  for (var i = 0, l = children.length; i &#x3c; l; i++) {
+  for (var i = 0, l = children.length; i &lt; l; i++) {
     child = children[i];
     compiler = new this.compiler(); // eslint-disable-line new-cap
 
     var existing = this.matchExistingProgram(child);
 
     if (existing == null) {
-      this.context.programs.push(&#x27;&#x27;); // Placeholder to prevent name conflicts for nested children
+      this.context.programs.push(''); // Placeholder to prevent name conflicts for nested children
       var index = this.context.programs.length;
       child.index = index;
-      child.name = &#x27;program&#x27; + index;
+      child.name = 'program' + index;
       this.context.programs[index] = compiler.compile(child, options, this.context, !this.precompile);
       this.context.decorators[index] = compiler.decorators;
       this.context.environments[index] = child;
@@ -4069,7 +4062,7 @@ var result = template(data);
       child.useBlockParams = this.useBlockParams;
     } else {
       child.index = existing.index;
-      child.name = &#x27;program&#x27; + existing.index;
+      child.name = 'program' + existing.index;
 
       this.useDepths = this.useDepths || existing.useDepths;
       this.useBlockParams = this.useBlockParams || existing.useBlockParams;
@@ -4119,10 +4112,10 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function contextName(context) {
-  if (this.useDepths &#x26;&#x26; context) {
-    return &#x27;depths[&#x27; + context + &#x27;]&#x27;;
+  if (this.useDepths &amp;&amp; context) {
+    return 'depths[' + context + ']';
   } else {
-    return &#x27;depth&#x27; + context;
+    return 'depth' + context;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4138,11 +4131,11 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function createFunctionContext(asObject) {
-  var varDeclarations = &#x27;&#x27;;
+  var varDeclarations = '';
 
   var locals = this.stackVars.concat(this.registers.list);
-  if (locals.length &#x3e; 0) {
-    varDeclarations += &#x27;, &#x27; + locals.join(&#x27;, &#x27;);
+  if (locals.length &gt; 0) {
+    varDeclarations += ', ' + locals.join(', ');
   }
 
   // Generate minimizer alias mappings
@@ -4150,25 +4143,25 @@ var result = template(data);
   // When using true SourceNodes, this will update all references to the given alias
   // as the source nodes are reused in situ. For the non-source node compilation mode,
   // aliases will not be used, but this case is already being run on the client and
-  // we aren&#x27;t concern about minimizing the template size.
+  // we aren't concern about minimizing the template size.
   var aliasCount = 0;
   for (var alias in this.aliases) {
     // eslint-disable-line guard-for-in
     var node = this.aliases[alias];
 
-    if (this.aliases.hasOwnProperty(alias) &#x26;&#x26; node.children &#x26;&#x26; node.referenceCount &#x3e; 1) {
-      varDeclarations += &#x27;, alias&#x27; + ++aliasCount + &#x27;=&#x27; + alias;
-      node.children[0] = &#x27;alias&#x27; + aliasCount;
+    if (this.aliases.hasOwnProperty(alias) &amp;&amp; node.children &amp;&amp; node.referenceCount &gt; 1) {
+      varDeclarations += ', alias' + ++aliasCount + '=' + alias;
+      node.children[0] = 'alias' + aliasCount;
     }
   }
 
-  var params = [&#x27;container&#x27;, &#x27;depth0&#x27;, &#x27;helpers&#x27;, &#x27;partials&#x27;, &#x27;data&#x27;];
+  var params = ['container', 'depth0', 'helpers', 'partials', 'data'];
 
   if (this.useBlockParams || this.useDepths) {
-    params.push(&#x27;blockParams&#x27;);
+    params.push('blockParams');
   }
   if (this.useDepths) {
-    params.push(&#x27;depths&#x27;);
+    params.push('depths');
   }
 
   // Perform a second pass over the output to merge content when possible
@@ -4179,7 +4172,7 @@ var result = template(data);
 
     return Function.apply(this, params);
   } else {
-    return this.source.wrap([&#x27;function(&#x27;, params.join(&#x27;,&#x27;), &#x27;) {\n  &#x27;, source, &#x27;}&#x27;]);
+    return this.source.wrap(['function(', params.join(','), ') {\n  ', source, '}']);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4195,7 +4188,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function depthedLookup(name) {
-  return [this.aliasable(&#x27;container.lookup&#x27;), &#x27;(depths, &#x22;&#x27;, name, &#x27;&#x22;)&#x27;];
+  return [this.aliasable('container.lookup'), '(depths, "', name, '")'];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4211,13 +4204,13 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function emptyHash(omitEmpty) {
   if (this.trackIds) {
-    this.push(&#x27;{}&#x27;); // hashIds
+    this.push('{}'); // hashIds
   }
   if (this.stringParams) {
-    this.push(&#x27;{}&#x27;); // hashContexts
-    this.push(&#x27;{}&#x27;); // hashTypes
+    this.push('{}'); // hashContexts
+    this.push('{}'); // hashTypes
   }
-  this.pushStackLiteral(omitEmpty ? &#x27;undefined&#x27; : &#x27;{}&#x27;);
+  this.pushStackLiteral(omitEmpty ? 'undefined' : '{}');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4234,14 +4227,14 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function flushInline() {
   var inlineStack = this.inlineStack;
   this.inlineStack = [];
-  for (var i = 0, len = inlineStack.length; i &#x3c; len; i++) {
+  for (var i = 0, len = inlineStack.length; i &lt; len; i++) {
     var entry = inlineStack[i];
 <span class="apidocCodeCommentSpan">    /* istanbul ignore if */
 </span>    if (entry instanceof Literal) {
       this.compileStack.push(entry);
     } else {
       var stack = this.incrStack();
-      this.pushSource([stack, &#x27; = &#x27;, entry, &#x27;;&#x27;]);
+      this.pushSource([stack, ' = ', entry, ';']);
       this.compileStack.push(stack);
     }
   }
@@ -4275,8 +4268,8 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function incrStack() {
   this.stackSlot++;
-  if (this.stackSlot &#x3e; this.stackVars.length) {
-    this.stackVars.push(&#x27;stack&#x27; + this.stackSlot);
+  if (this.stackSlot &gt; this.stackVars.length) {
+    this.stackVars.push('stack' + this.stackSlot);
   }
   return this.topStackName();
 }</pre></li>
@@ -4293,7 +4286,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function initializeBuffer() {
-  return this.quotedString(&#x27;&#x27;);
+  return this.quotedString('');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4308,23 +4301,23 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function invokeAmbiguous(name, helperCall) {
-  this.useRegister(&#x27;helper&#x27;);
+  this.useRegister('helper');
 
   var nonHelper = this.popStack();
 
   this.emptyHash();
   var helper = this.setupHelper(0, name, helperCall);
 
-  var helperName = this.lastHelper = this.nameLookup(&#x27;helpers&#x27;, name, &#x27;helper&#x27;);
+  var helperName = this.lastHelper = this.nameLookup('helpers', name, 'helper');
 
-  var lookup = [&#x27;(&#x27;, &#x27;(helper = &#x27;, helperName, &#x27; || &#x27;, nonHelper, &#x27;)&#x27;];
+  var lookup = ['(', '(helper = ', helperName, ' || ', nonHelper, ')'];
   if (!this.options.strict) {
-    lookup[0] = &#x27;(helper = &#x27;;
-    lookup.push(&#x27; != null ? helper : &#x27;, this.aliasable(&#x27;helpers.helperMissing&#x27;));
+    lookup[0] = '(helper = ';
+    lookup.push(' != null ? helper : ', this.aliasable('helpers.helperMissing'));
   }
 
-  this.push([&#x27;(&#x27;, lookup, helper.paramsInit ? [&#x27;),(&#x27;, helper.paramsInit] : [], &#x27;),&#x27;, &#x27;(typeof helper === &#x27;, this.aliasable(&#x27;&#x22;function
-&#x22;&#x27;), &#x27; ? &#x27;, this.source.functionCall(&#x27;helper&#x27;, &#x27;call&#x27;, helper.callParams), &#x27; : helper))&#x27;]);
+  this.push(['(', lookup, helper.paramsInit ? ['),(', helper.paramsInit] : [], '),', '(typeof helper === ', this.aliasable('"function
+"'), ' ? ', this.source.functionCall('helper', 'call', helper.callParams), ' : helper))']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4341,15 +4334,15 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function invokeHelper(paramSize, name, isSimple) {
   var nonHelper = this.popStack(),
       helper = this.setupHelper(paramSize, name),
-      simple = isSimple ? [helper.name, &#x27; || &#x27;] : &#x27;&#x27;;
+      simple = isSimple ? [helper.name, ' || '] : '';
 
-  var lookup = [&#x27;(&#x27;].concat(simple, nonHelper);
+  var lookup = ['('].concat(simple, nonHelper);
   if (!this.options.strict) {
-    lookup.push(&#x27; || &#x27;, this.aliasable(&#x27;helpers.helperMissing&#x27;));
+    lookup.push(' || ', this.aliasable('helpers.helperMissing'));
   }
-  lookup.push(&#x27;)&#x27;);
+  lookup.push(')');
 
-  this.push(this.source.functionCall(lookup, &#x27;call&#x27;, helper.callParams));
+  this.push(this.source.functionCall(lookup, 'call', helper.callParams));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4365,7 +4358,7 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function invokeKnownHelper(paramSize, name) {
   var helper = this.setupHelper(paramSize, name);
-  this.push(this.source.functionCall(helper.name, &#x27;call&#x27;, helper.callParams));
+  this.push(this.source.functionCall(helper.name, 'call', helper.callParams));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4391,23 +4384,23 @@ var result = template(data);
   if (indent) {
     options.indent = JSON.stringify(indent);
   }
-  options.helpers = &#x27;helpers&#x27;;
-  options.partials = &#x27;partials&#x27;;
-  options.decorators = &#x27;container.decorators&#x27;;
+  options.helpers = 'helpers';
+  options.partials = 'partials';
+  options.decorators = 'container.decorators';
 
   if (!isDynamic) {
-    params.unshift(this.nameLookup(&#x27;partials&#x27;, name, &#x27;partial&#x27;));
+    params.unshift(this.nameLookup('partials', name, 'partial'));
   } else {
     params.unshift(name);
   }
 
   if (this.options.compat) {
-    options.depths = &#x27;depths&#x27;;
+    options.depths = 'depths';
   }
   options = this.objectLiteral(options);
   params.push(options);
 
-  this.push(this.source.functionCall(&#x27;container.invokePartial&#x27;, &#x27;&#x27;, params));
+  this.push(this.source.functionCall('container.invokePartial', '', params));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4439,8 +4432,8 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function lookupBlockParam(blockParamId, parts) {
   this.useBlockParams = true;
 
-  this.push([&#x27;blockParams[&#x27;, blockParamId[0], &#x27;][&#x27;, blockParamId[1], &#x27;]&#x27;]);
-  this.resolvePath(&#x27;context&#x27;, parts, 1);
+  this.push(['blockParams[', blockParamId[0], '][', blockParamId[1], ']']);
+  this.resolvePath('context', parts, 1);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4456,12 +4449,12 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function lookupData(depth, parts, strict) {
   if (!depth) {
-    this.pushStackLiteral(&#x27;data&#x27;);
+    this.pushStackLiteral('data');
   } else {
-    this.pushStackLiteral(&#x27;container.data(data, &#x27; + depth + &#x27;)&#x27;);
+    this.pushStackLiteral('container.data(data, ' + depth + ')');
   }
 
-  this.resolvePath(&#x27;data&#x27;, parts, 0, true, strict);
+  this.resolvePath('data', parts, 0, true, strict);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4478,7 +4471,7 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function lookupOnContext(parts, falsy, strict, scoped) {
   var i = 0;
 
-  if (!scoped &#x26;&#x26; this.options.compat &#x26;&#x26; !this.lastContext) {
+  if (!scoped &amp;&amp; this.options.compat &amp;&amp; !this.lastContext) {
     // The depthed query is expected to handle the undefined logic for the root level that
     // is implemented below, so we evaluate that directly in compat mode
     this.push(this.depthedLookup(parts[i++]));
@@ -4486,7 +4479,7 @@ var result = template(data);
     this.pushContext();
   }
 
-  this.resolvePath(&#x27;context&#x27;, parts, i, falsy, strict);
+  this.resolvePath('context', parts, i, falsy, strict);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4501,9 +4494,9 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function matchExistingProgram(child) {
-  for (var i = 0, len = this.context.environments.length; i &#x3c; len; i++) {
+  for (var i = 0, len = this.context.environments.length; i &lt; len; i++) {
     var environment = this.context.environments[i];
-    if (environment &#x26;&#x26; environment.equals(child)) {
+    if (environment &amp;&amp; environment.equals(child)) {
       return environment;
     }
   }
@@ -4530,7 +4523,7 @@ var result = template(data);
   this.source.each(function (line) {
     if (line.appendToBuffer) {
       if (bufferStart) {
-        line.prepend(&#x27;  + &#x27;);
+        line.prepend('  + ');
       } else {
         bufferStart = line;
       }
@@ -4540,9 +4533,9 @@ var result = template(data);
         if (!sourceSeen) {
           appendFirst = true;
         } else {
-          bufferStart.prepend(&#x27;buffer += &#x27;);
+          bufferStart.prepend('buffer += ');
         }
-        bufferEnd.add(&#x27;;&#x27;);
+        bufferEnd.add(';');
         bufferStart = bufferEnd = undefined;
       }
 
@@ -4555,24 +4548,24 @@ var result = template(data);
 
   if (appendOnly) {
     if (bufferStart) {
-      bufferStart.prepend(&#x27;return &#x27;);
-      bufferEnd.add(&#x27;;&#x27;);
+      bufferStart.prepend('return ');
+      bufferEnd.add(';');
     } else if (!sourceSeen) {
-      this.source.push(&#x27;return &#x22;&#x22;;&#x27;);
+      this.source.push('return "";');
     }
   } else {
-    varDeclarations += &#x27;, buffer = &#x27; + (appendFirst ? &#x27;&#x27; : this.initializeBuffer());
+    varDeclarations += ', buffer = ' + (appendFirst ? '' : this.initializeBuffer());
 
     if (bufferStart) {
-      bufferStart.prepend(&#x27;return buffer + &#x27;);
-      bufferEnd.add(&#x27;;&#x27;);
+      bufferStart.prepend('return buffer + ');
+      bufferEnd.add(';');
     } else {
-      this.source.push(&#x27;return buffer;&#x27;);
+      this.source.push('return buffer;');
     }
   }
 
   if (varDeclarations) {
-    this.source.prepend(&#x27;var &#x27; + varDeclarations.substring(2) + (appendFirst ? &#x27;&#x27; : &#x27;;\n&#x27;));
+    this.source.prepend('var ' + varDeclarations.substring(2) + (appendFirst ? '' : ';\n'));
   }
 
   return this.source.merge();
@@ -4591,9 +4584,9 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nameLookup(parent, name) {
   if (JavaScriptCompiler.isValidJavaScriptVariableName(name)) {
-    return [parent, &#x27;.&#x27;, name];
+    return [parent, '.', name];
   } else {
-    return [parent, &#x27;[&#x27;, JSON.stringify(name), &#x27;]&#x27;];
+    return [parent, '[', JSON.stringify(name), ']'];
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4653,13 +4646,13 @@ var result = template(data);
   var inline = this.isInline(),
       item = (inline ? this.inlineStack : this.compileStack).pop();
 
-  if (!wrapped &#x26;&#x26; item instanceof Literal) {
+  if (!wrapped &amp;&amp; item instanceof Literal) {
     return item.value;
   } else {
     if (!inline) {
 <span class="apidocCodeCommentSpan">      /* istanbul ignore next */
 </span>      if (!this.stackSlot) {
-        throw new _exception2[&#x27;default&#x27;](&#x27;Invalid stack pop&#x27;);
+        throw new _exception2['default']('Invalid stack pop');
       }
       this.stackSlot--;
     }
@@ -4682,8 +4675,8 @@ var result = template(data);
   // track the last context pushed into place to allow skipping the
   // getContext opcode when it would be a noop
   this.lastContext = 0;
-  this.source = new _codeGen2[&#x27;default&#x27;](this.options.srcName);
-  this.decorators = new _codeGen2[&#x27;default&#x27;](this.options.srcName);
+  this.source = new _codeGen2['default'](this.options.srcName);
+  this.decorators = new _codeGen2['default'](this.options.srcName);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4699,16 +4692,16 @@ var result = template(data);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function programExpression(guid) {
   var child = this.environment.children[guid],
-      programParams = [child.index, &#x27;data&#x27;, child.blockParams];
+      programParams = [child.index, 'data', child.blockParams];
 
   if (this.useBlockParams || this.useDepths) {
-    programParams.push(&#x27;blockParams&#x27;);
+    programParams.push('blockParams');
   }
   if (this.useDepths) {
-    programParams.push(&#x27;depths&#x27;);
+    programParams.push('depths');
   }
 
-  return &#x27;container.program(&#x27; + programParams.join(&#x27;, &#x27;) + &#x27;)&#x27;;
+  return 'container.program(' + programParams.join(', ') + ')';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4776,14 +4769,14 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function pushId(type, name, child) {
-  if (type === &#x27;BlockParam&#x27;) {
-    this.pushStackLiteral(&#x27;blockParams[&#x27; + name[0] + &#x27;].path[&#x27; + name[1] + &#x27;]&#x27; + (child ? &#x27; + &#x27; + JSON.stringify(&#x27;.&#x27; + child) : &#x27;&#x27;));
-  } else if (type === &#x27;PathExpression&#x27;) {
+  if (type === 'BlockParam') {
+    this.pushStackLiteral('blockParams[' + name[0] + '].path[' + name[1] + ']' + (child ? ' + ' + JSON.stringify('.' + child) : ''));
+  } else if (type === 'PathExpression') {
     this.pushString(name);
-  } else if (type === &#x27;SubExpression&#x27;) {
-    this.pushStackLiteral(&#x27;true&#x27;);
+  } else if (type === 'SubExpression') {
+    this.pushStackLiteral('true');
   } else {
-    this.pushStackLiteral(&#x27;null&#x27;);
+    this.pushStackLiteral('null');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4888,10 +4881,10 @@ var result = template(data);
   this.pushContext();
   this.pushString(type);
 
-  // If it&#x27;s a subexpression, the string result
+  // If it's a subexpression, the string result
   // will be pushed after this opcode.
-  if (type !== &#x27;SubExpression&#x27;) {
-    if (typeof string === &#x27;string&#x27;) {
+  if (type !== 'SubExpression') {
+    if (typeof string === 'string') {
       this.pushString(string);
     } else {
       this.pushStackLiteral(string);
@@ -4926,11 +4919,11 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function registerDecorator(paramSize, name) {
-  var foundDecorator = this.nameLookup(&#x27;decorators&#x27;, name, &#x27;decorator&#x27;),
+  var foundDecorator = this.nameLookup('decorators', name, 'decorator'),
       options = this.setupHelperArgs(name, paramSize);
 
-  this.decorators.push([&#x27;fn = &#x27;, this.decorators.functionCall(foundDecorator, &#x27;&#x27;, [&#x27;fn&#x27;, &#x27;props&#x27;, &#x27;container&#x27;, options]), &#x27; || fn
-;&#x27;]);
+  this.decorators.push(['fn = ', this.decorators.functionCall(foundDecorator, '', ['fn', 'props', 'container', options]), ' || fn
+;']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4945,30 +4938,30 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function replaceStack(callback) {
-  var prefix = [&#x27;(&#x27;],
+  var prefix = ['('],
       stack = undefined,
       createdStack = undefined,
       usedLiteral = undefined;
 
 <span class="apidocCodeCommentSpan">  /* istanbul ignore next */
 </span>  if (!this.isInline()) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;replaceStack on non-inline&#x27;);
+    throw new _exception2['default']('replaceStack on non-inline');
   }
 
-  // We want to merge the inline statement into the replacement statement via &#x27;,&#x27;
+  // We want to merge the inline statement into the replacement statement via ','
   var top = this.popStack(true);
 
   if (top instanceof Literal) {
     // Literals do not need to be inlined
     stack = [top.value];
-    prefix = [&#x27;(&#x27;, stack];
+    prefix = ['(', stack];
     usedLiteral = true;
   } else {
     // Get or create the current stack name for use by the inline
     createdStack = true;
     var _name = this.incrStack();
 
-    prefix = [&#x27;((&#x27;, this.push(_name), &#x27; = &#x27;, top, &#x27;)&#x27;];
+    prefix = ['((', this.push(_name), ' = ', top, ')'];
     stack = this.topStack();
   }
 
@@ -4980,7 +4973,7 @@ var result = template(data);
   if (createdStack) {
     this.stackSlot--;
   }
-  this.push(prefix.concat(item, &#x27;)&#x27;));
+  this.push(prefix.concat(item, ')'));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5000,22 +4993,22 @@ var result = template(data);
   var _this = this;
 
   if (this.options.strict || this.options.assumeObjects) {
-    this.push(strictLookup(this.options.strict &#x26;&#x26; strict, this, parts, type));
+    this.push(strictLookup(this.options.strict &amp;&amp; strict, this, parts, type));
     return;
   }
 
   var len = parts.length;
-  for (; i &#x3c; len; i++) {
+  for (; i &lt; len; i++) {
 <span class="apidocCodeCommentSpan">    /* eslint-disable no-loop-func */
 </span>    this.replaceStack(function (current) {
       var lookup = _this.nameLookup(current, parts[i], type);
       // We want to ensure that zero and false are handled properly if the context (falsy flag)
       // needs to have the special handling for these values.
       if (!falsy) {
-        return [&#x27; != null ? &#x27;, lookup, &#x27; : &#x27;, current];
+        return [' != null ? ', lookup, ' : ', current];
       } else {
         // Otherwise we can use generic falsy handling
-        return [&#x27; &#x26;&#x26; &#x27;, lookup];
+        return [' &amp;&amp; ', lookup];
       }
     });
     /* eslint-enable no-loop-func */
@@ -5034,7 +5027,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function resolvePossibleLambda() {
-  this.push([this.aliasable(&#x27;container.lambda&#x27;), &#x27;(&#x27;, this.popStack(), &#x27;, &#x27;, this.contextName(0), &#x27;)&#x27;]);
+  this.push([this.aliasable('container.lambda'), '(', this.popStack(), ', ', this.contextName(0), ')']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5051,8 +5044,8 @@ var result = template(data);
     <li>description and source-code<pre class="apidocCodePre">function setupHelper(paramSize, name, blockHelper) {
   var params = [],
       paramsInit = this.setupHelperArgs(name, paramSize, params, blockHelper);
-  var foundHelper = this.nameLookup(&#x27;helpers&#x27;, name, &#x27;helper&#x27;),
-      callContext = this.aliasable(this.contextName(0) + &#x27; != null ? &#x27; + this.contextName(0) + &#x27; : {}&#x27;);
+  var foundHelper = this.nameLookup('helpers', name, 'helper'),
+      callContext = this.aliasable(this.contextName(0) + ' != null ? ' + this.contextName(0) + ' : {}');
 
   return {
     params: params,
@@ -5077,12 +5070,12 @@ var result = template(data);
   var options = this.setupParams(helper, paramSize, params);
   options = this.objectLiteral(options);
   if (useRegister) {
-    this.useRegister(&#x27;options&#x27;);
-    params.push(&#x27;options&#x27;);
-    return [&#x27;options=&#x27;, options];
+    this.useRegister('options');
+    params.push('options');
+    return ['options=', options];
   } else if (params) {
     params.push(options);
-    return &#x27;&#x27;;
+    return '';
   } else {
     return options;
   }
@@ -5128,8 +5121,8 @@ var result = template(data);
   // Avoid setting fn and inverse if neither are set. This allows
   // helpers to do a check for `if (options.fn)`
   if (program || inverse) {
-    options.fn = program || &#x27;container.noop&#x27;;
-    options.inverse = inverse || &#x27;container.noop&#x27;;
+    options.fn = program || 'container.noop';
+    options.inverse = inverse || 'container.noop';
   }
 
   // The parameters go on to the stack in order (making sure that they are evaluated in order)
@@ -5161,10 +5154,10 @@ var result = template(data);
   }
 
   if (this.options.data) {
-    options.data = &#x27;data&#x27;;
+    options.data = 'data';
   }
   if (this.useBlockParams) {
-    options.blockParams = &#x27;blockParams&#x27;;
+    options.blockParams = 'blockParams';
   }
   return options;
 }</pre></li>
@@ -5204,7 +5197,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function topStackName() {
-  return &#x27;stack&#x27; + this.stackSlot;
+  return 'stack' + this.stackSlot;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5262,13 +5255,13 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">BlockStatement = function (block) {
-  var out = &#x27;&#x27;;
+  var out = '';
 
-  out += this.pad((block.type === &#x27;DecoratorBlock&#x27; ? &#x27;DIRECTIVE &#x27; : &#x27;&#x27;) + &#x27;BLOCK:&#x27;);
+  out += this.pad((block.type === 'DecoratorBlock' ? 'DIRECTIVE ' : '') + 'BLOCK:');
   this.padding++;
   out += this.pad(this.SubExpression(block));
   if (block.program) {
-    out += this.pad(&#x27;PROGRAM:&#x27;);
+    out += this.pad('PROGRAM:');
     this.padding++;
     out += this.accept(block.program);
     this.padding--;
@@ -5277,7 +5270,7 @@ var result = template(data);
     if (block.program) {
       this.padding++;
     }
-    out += this.pad(&#x27;{{^}}&#x27;);
+    out += this.pad('{{^}}');
     this.padding++;
     out += this.accept(block.inverse);
     this.padding--;
@@ -5302,7 +5295,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">BooleanLiteral = function (bool) {
-  return &#x27;BOOLEAN{&#x27; + bool.value + &#x27;}&#x27;;
+  return 'BOOLEAN{' + bool.value + '}';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5317,7 +5310,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">CommentStatement = function (comment) {
-  return this.pad(&#x22;{{! &#x27;&#x22; + comment.value + &#x22;&#x27; }}&#x22;);
+  return this.pad("{{! '" + comment.value + "' }}");
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5332,7 +5325,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">ContentStatement = function (content) {
-  return this.pad(&#x22;CONTENT[ &#x27;&#x22; + content.value + &#x22;&#x27; ]&#x22;);
+  return this.pad("CONTENT[ '" + content.value + "' ]");
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5347,7 +5340,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Decorator = function (mustache) {
-  return this.pad(&#x27;{{ DIRECTIVE &#x27; + this.SubExpression(mustache) + &#x27; }}&#x27;);
+  return this.pad('{{ DIRECTIVE ' + this.SubExpression(mustache) + ' }}');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5362,13 +5355,13 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">DecoratorBlock = function (block) {
-  var out = &#x27;&#x27;;
+  var out = '';
 
-  out += this.pad((block.type === &#x27;DecoratorBlock&#x27; ? &#x27;DIRECTIVE &#x27; : &#x27;&#x27;) + &#x27;BLOCK:&#x27;);
+  out += this.pad((block.type === 'DecoratorBlock' ? 'DIRECTIVE ' : '') + 'BLOCK:');
   this.padding++;
   out += this.pad(this.SubExpression(block));
   if (block.program) {
-    out += this.pad(&#x27;PROGRAM:&#x27;);
+    out += this.pad('PROGRAM:');
     this.padding++;
     out += this.accept(block.program);
     this.padding--;
@@ -5377,7 +5370,7 @@ var result = template(data);
     if (block.program) {
       this.padding++;
     }
-    out += this.pad(&#x27;{{^}}&#x27;);
+    out += this.pad('{{^}}');
     this.padding++;
     out += this.accept(block.inverse);
     this.padding--;
@@ -5405,11 +5398,11 @@ var result = template(data);
   var pairs = hash.pairs,
       joinedPairs = [];
 
-  for (var i = 0, l = pairs.length; i &#x3c; l; i++) {
+  for (var i = 0, l = pairs.length; i &lt; l; i++) {
     joinedPairs.push(this.accept(pairs[i]));
   }
 
-  return &#x27;HASH{&#x27; + joinedPairs.join(&#x27;, &#x27;) + &#x27;}&#x27;;
+  return 'HASH{' + joinedPairs.join(', ') + '}';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5424,7 +5417,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">HashPair = function (pair) {
-  return pair.key + &#x27;=&#x27; + this.accept(pair.value);
+  return pair.key + '=' + this.accept(pair.value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5439,7 +5432,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">MustacheStatement = function (mustache) {
-  return this.pad(&#x27;{{ &#x27; + this.SubExpression(mustache) + &#x27; }}&#x27;);
+  return this.pad('{{ ' + this.SubExpression(mustache) + ' }}');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5454,7 +5447,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">NullLiteral = function () {
-  return &#x27;NULL&#x27;;
+  return 'NULL';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5469,7 +5462,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">NumberLiteral = function (number) {
-  return &#x27;NUMBER{&#x27; + number.value + &#x27;}&#x27;;
+  return 'NUMBER{' + number.value + '}';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5484,20 +5477,20 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">PartialBlockStatement = function (partial) {
-  var content = &#x27;PARTIAL BLOCK:&#x27; + partial.name.original;
+  var content = 'PARTIAL BLOCK:' + partial.name.original;
   if (partial.params[0]) {
-    content += &#x27; &#x27; + this.accept(partial.params[0]);
+    content += ' ' + this.accept(partial.params[0]);
   }
   if (partial.hash) {
-    content += &#x27; &#x27; + this.accept(partial.hash);
+    content += ' ' + this.accept(partial.hash);
   }
 
-  content += &#x27; &#x27; + this.pad(&#x27;PROGRAM:&#x27;);
+  content += ' ' + this.pad('PROGRAM:');
   this.padding++;
   content += this.accept(partial.program);
   this.padding--;
 
-  return this.pad(&#x27;{{&#x3e; &#x27; + content + &#x27; }}&#x27;);
+  return this.pad('{{&gt; ' + content + ' }}');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5512,14 +5505,14 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">PartialStatement = function (partial) {
-  var content = &#x27;PARTIAL:&#x27; + partial.name.original;
+  var content = 'PARTIAL:' + partial.name.original;
   if (partial.params[0]) {
-    content += &#x27; &#x27; + this.accept(partial.params[0]);
+    content += ' ' + this.accept(partial.params[0]);
   }
   if (partial.hash) {
-    content += &#x27; &#x27; + this.accept(partial.hash);
+    content += ' ' + this.accept(partial.hash);
   }
-  return this.pad(&#x27;{{&#x3e; &#x27; + content + &#x27; }}&#x27;);
+  return this.pad('{{&gt; ' + content + ' }}');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5534,8 +5527,8 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">PathExpression = function (id) {
-  var path = id.parts.join(&#x27;/&#x27;);
-  return (id.data ? &#x27;@&#x27; : &#x27;&#x27;) + &#x27;PATH:&#x27; + path;
+  var path = id.parts.join('/');
+  return (id.data ? '@' : '') + 'PATH:' + path;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5550,21 +5543,21 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Program = function (program) {
-  var out = &#x27;&#x27;,
+  var out = '',
       body = program.body,
       i = undefined,
       l = undefined;
 
   if (program.blockParams) {
-    var blockParams = &#x27;BLOCK PARAMS: [&#x27;;
-    for (i = 0, l = program.blockParams.length; i &#x3c; l; i++) {
-      blockParams += &#x27; &#x27; + program.blockParams[i];
+    var blockParams = 'BLOCK PARAMS: [';
+    for (i = 0, l = program.blockParams.length; i &lt; l; i++) {
+      blockParams += ' ' + program.blockParams[i];
     }
-    blockParams += &#x27; ]&#x27;;
+    blockParams += ' ]';
     out += this.pad(blockParams);
   }
 
-  for (i = 0, l = body.length; i &#x3c; l; i++) {
+  for (i = 0, l = body.length; i &lt; l; i++) {
     out += this.accept(body[i]);
   }
 
@@ -5585,7 +5578,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">StringLiteral = function (string) {
-  return &#x27;&#x22;&#x27; + string.value + &#x27;&#x22;&#x27;;
+  return '"' + string.value + '"';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5604,15 +5597,15 @@ var result = template(data);
       paramStrings = [],
       hash = undefined;
 
-  for (var i = 0, l = params.length; i &#x3c; l; i++) {
+  for (var i = 0, l = params.length; i &lt; l; i++) {
     paramStrings.push(this.accept(params[i]));
   }
 
-  params = &#x27;[&#x27; + paramStrings.join(&#x27;, &#x27;) + &#x27;]&#x27;;
+  params = '[' + paramStrings.join(', ') + ']';
 
-  hash = sexpr.hash ? &#x27; &#x27; + this.accept(sexpr.hash) : &#x27;&#x27;;
+  hash = sexpr.hash ? ' ' + this.accept(sexpr.hash) : '';
 
-  return this.accept(sexpr.path) + &#x27; &#x27; + params + hash;
+  return this.accept(sexpr.path) + ' ' + params + hash;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5627,7 +5620,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">UndefinedLiteral = function () {
-  return &#x27;UNDEFINED&#x27;;
+  return 'UNDEFINED';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5642,13 +5635,13 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">pad = function (string) {
-  var out = &#x27;&#x27;;
+  var out = '';
 
-  for (var i = 0, l = this.padding; i &#x3c; l; i++) {
-    out += &#x27;  &#x27;;
+  for (var i = 0, l = this.padding; i &lt; l; i++) {
+    out += '  ';
   }
 
-  out += string + &#x27;\n&#x27;;
+  out += string + '\n';
   return out;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5691,7 +5684,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">toHTML = function () {
-  return &#x27;&#x27; + this.string;
+  return '' + this.string;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5706,7 +5699,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">toString = function () {
-  return &#x27;&#x27; + this.string;
+  return '' + this.string;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5728,7 +5721,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function appendContextPath(contextPath, id) {
-  return (contextPath ? contextPath + &#x27;.&#x27; : &#x27;&#x27;) + id;
+  return (contextPath ? contextPath + '.' : '') + id;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5776,20 +5769,20 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function escapeExpression(string) {
-  if (typeof string !== &#x27;string&#x27;) {
-    // don&#x27;t escape SafeStrings, since they&#x27;re already safe
-    if (string &#x26;&#x26; string.toHTML) {
+  if (typeof string !== 'string') {
+    // don't escape SafeStrings, since they're already safe
+    if (string &amp;&amp; string.toHTML) {
       return string.toHTML();
     } else if (string == null) {
-      return &#x27;&#x27;;
+      return '';
     } else if (!string) {
-      return string + &#x27;&#x27;;
+      return string + '';
     }
 
     // Force a string conversion as this will be done by the append regardless and
     // the regex test will do this transparently behind the scenes, causing issues if
-    // an object&#x27;s to string has escaped characters in it.
-    string = &#x27;&#x27; + string;
+    // an object's to string has escaped characters in it.
+    string = '' + string;
   }
 
   if (!possible.test(string)) {
@@ -5810,7 +5803,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function extend(obj) {
-  for (var i = 1; i &#x3c; arguments.length; i++) {
+  for (var i = 1; i &lt; arguments.length; i++) {
     for (var key in arguments[i]) {
       if (Object.prototype.hasOwnProperty.call(arguments[i], key)) {
         obj[key] = arguments[i][key];
@@ -5833,7 +5826,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function indexOf(array, value) {
-  for (var i = 0, len = array.length; i &#x3c; len; i++) {
+  for (var i = 0, len = array.length; i &lt; len; i++) {
     if (array[i] === value) {
       return i;
     }
@@ -5866,9 +5859,9 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isEmpty(value) {
-  if (!value &#x26;&#x26; value !== 0) {
+  if (!value &amp;&amp; value !== 0) {
     return true;
-  } else if (isArray(value) &#x26;&#x26; value.length === 0) {
+  } else if (isArray(value) &amp;&amp; value.length === 0) {
     return true;
   } else {
     return false;
@@ -5887,7 +5880,7 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isFunction(value) {
-  return typeof value === &#x27;function&#x27;;
+  return typeof value === 'function';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5909,20 +5902,20 @@ var result = template(data);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function checkRevision(compilerInfo) {
-  var compilerRevision = compilerInfo &#x26;&#x26; compilerInfo[0] || 1,
+  var compilerRevision = compilerInfo &amp;&amp; compilerInfo[0] || 1,
       currentRevision = _base.COMPILER_REVISION;
 
   if (compilerRevision !== currentRevision) {
-    if (compilerRevision &#x3c; currentRevision) {
+    if (compilerRevision &lt; currentRevision) {
       var runtimeVersions = _base.REVISION_CHANGES[currentRevision],
           compilerVersions = _base.REVISION_CHANGES[compilerRevision];
-      throw new _exception2[&#x27;default&#x27;](&#x27;Template was precompiled with an older version of Handlebars than the current runtime. &#x27; + &#x27;
-Please update your precompiler to a newer version (&#x27; + runtimeVersions + &#x27;) or downgrade your runtime to an older version (&#x27; + compilerVersions
- + &#x27;).&#x27;);
+      throw new _exception2['default']('Template was precompiled with an older version of Handlebars than the current runtime. ' + '
+Please update your precompiler to a newer version (' + runtimeVersions + ') or downgrade your runtime to an older version (' + compilerVersions
+ + ').');
     } else {
-      // Use the embedded version info since the runtime doesn&#x27;t know about this revision yet
-      throw new _exception2[&#x27;default&#x27;](&#x27;Template was precompiled with a newer version of Handlebars than the current runtime. &#x27; + &#x27;
-Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;).&#x27;);
+      // Use the embedded version info since the runtime doesn't know about this revision yet
+      throw new _exception2['default']('Template was precompiled with a newer version of Handlebars than the current runtime. ' + '
+Please update your runtime to a newer version (' + compilerInfo[1] + ').');
     }
   }
 }</pre></li>
@@ -5945,21 +5938,21 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
   }
 
   var partialBlock = undefined;
-  if (options.fn &#x26;&#x26; options.fn !== noop) {
+  if (options.fn &amp;&amp; options.fn !== noop) {
     options.data = _base.createFrame(options.data);
-    partialBlock = options.data[&#x27;partial-block&#x27;] = options.fn;
+    partialBlock = options.data['partial-block'] = options.fn;
 
     if (partialBlock.partials) {
       options.partials = Utils.extend({}, options.partials, partialBlock.partials);
     }
   }
 
-  if (partial === undefined &#x26;&#x26; partialBlock) {
+  if (partial === undefined &amp;&amp; partialBlock) {
     partial = partialBlock;
   }
 
   if (partial === undefined) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;The partial &#x27; + options.name + &#x27; could not be found&#x27;);
+    throw new _exception2['default']('The partial ' + options.name + ' could not be found');
   } else if (partial instanceof Function) {
     return partial(context, options);
   }
@@ -5977,7 +5970,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function noop() {
-  return &#x27;&#x27;;
+  return '';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5993,17 +5986,17 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function resolvePartial(partial, context, options) {
   if (!partial) {
-    if (options.name === &#x27;@partial-block&#x27;) {
+    if (options.name === '@partial-block') {
       var data = options.data;
-      while (data[&#x27;partial-block&#x27;] === noop) {
+      while (data['partial-block'] === noop) {
         data = data._parent;
       }
-      partial = data[&#x27;partial-block&#x27;];
-      data[&#x27;partial-block&#x27;] = noop;
+      partial = data['partial-block'];
+      data['partial-block'] = noop;
     } else {
       partial = options.partials[options.name];
     }
-  } else if (!partial.call &#x26;&#x26; !options.name) {
+  } else if (!partial.call &amp;&amp; !options.name) {
     // This is a dynamic partial that returned a string
     options.name = partial;
     partial = options.partials[partial];
@@ -6025,10 +6018,10 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     <li>description and source-code<pre class="apidocCodePre">function template(templateSpec, env) {
 <span class="apidocCodeCommentSpan">  /* istanbul ignore next */
 </span>  if (!env) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;No environment passed to template&#x27;);
+    throw new _exception2['default']('No environment passed to template');
   }
   if (!templateSpec || !templateSpec.main) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;Unknown template object: &#x27; + typeof templateSpec);
+    throw new _exception2['default']('Unknown template object: ' + typeof templateSpec);
   }
 
   templateSpec.main.decorator = templateSpec.main_d;
@@ -6048,26 +6041,26 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     partial = env.VM.resolvePartial.call(this, partial, context, options);
     var result = env.VM.invokePartial.call(this, partial, context, options);
 
-    if (result == null &#x26;&#x26; env.compile) {
+    if (result == null &amp;&amp; env.compile) {
       options.partials[options.name] = env.compile(partial, templateSpec.compilerOptions, env);
       result = options.partials[options.name](context, options);
     }
     if (result != null) {
       if (options.indent) {
-        var lines = result.split(&#x27;\n&#x27;);
-        for (var i = 0, l = lines.length; i &#x3c; l; i++) {
-          if (!lines[i] &#x26;&#x26; i + 1 === l) {
+        var lines = result.split('\n');
+        for (var i = 0, l = lines.length; i &lt; l; i++) {
+          if (!lines[i] &amp;&amp; i + 1 === l) {
             break;
           }
 
           lines[i] = options.indent + lines[i];
         }
-        result = lines.join(&#x27;\n&#x27;);
+        result = lines.join('\n');
       }
       return result;
     } else {
-      throw new _exception2[&#x27;default&#x27;](&#x27;The partial &#x27; + options.name + &#x27; could not be compiled when running in runtime-only mode
-&#x27;);
+      throw new _exception2['default']('The partial ' + options.name + ' could not be compiled when running in runtime-only mode
+');
     }
   }
 
@@ -6075,20 +6068,20 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
   var container = {
     strict: function strict(obj, name) {
       if (!(name in obj)) {
-        throw new _exception2[&#x27;default&#x27;](&#x27;&#x22;&#x27; + name + &#x27;&#x22; not defined in &#x27; + obj);
+        throw new _exception2['default']('"' + name + '" not defined in ' + obj);
       }
       return obj[name];
     },
     lookup: function lookup(depths, name) {
       var len = depths.length;
-      for (var i = 0; i &#x3c; len; i++) {
-        if (depths[i] &#x26;&#x26; depths[i][name] != null) {
+      for (var i = 0; i &lt; len; i++) {
+        if (depths[i] &amp;&amp; depths[i][name] != null) {
           return depths[i][name];
         }
       }
     },
     lambda: function lambda(current, context) {
-      return typeof current === &#x27;function&#x27; ? current.call(context) : current;
+      return typeof current === 'function' ? current.call(context) : current;
     },
 
     escapeExpression: Utils.escapeExpression,
@@ -6096,7 +6089,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
 
     fn: function fn(i) {
       var ret = templateSpec[i];
-      ret.decorator = templateSpec[i + &#x27;_d&#x27;];
+      ret.decorator = templateSpec[i + '_d'];
       return ret;
     },
 
@@ -6113,7 +6106,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     },
 
     data: function data(value, depth) {
-      while (value &#x26;&#x26; depth--) {
+      while (value &amp;&amp; depth--) {
         value = value._parent;
       }
       return value;
@@ -6121,7 +6114,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     merge: function merge(param, common) {
       var obj = param || common;
 
-      if (param &#x26;&#x26; common &#x26;&#x26; param !== common) {
+      if (param &amp;&amp; common &amp;&amp; param !== common) {
         obj = Utils.extend({}, common, param);
       }
 
@@ -6133,12 +6126,12 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
   };
 
   function ret(context) {
-    var options = arguments.length &#x3c;= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var options = arguments.length &lt;= 1 || arguments[1] === undefined ? {} : arguments[1];
 
     var data = options.data;
 
     ret._setup(options);
-    if (!options.partial &#x26;&#x26; templateSpec.useData) {
+    if (!options.partial &amp;&amp; templateSpec.useData) {
       data = initData(context, data);
     }
     var depths = undefined,
@@ -6152,7 +6145,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     }
 
     function main(context /*, options*/) {
-      return &#x27;&#x27; + templateSpec.main(container, context, container.helpers, container.partials, data, blockPara ...</pre></li>
+      return '' + templateSpec.main(container, context, container.helpers, container.partials, data, blockPara ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -6167,14 +6160,14 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
   function prog(context) {
-    var options = arguments.length &#x3c;= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var options = arguments.length &lt;= 1 || arguments[1] === undefined ? {} : arguments[1];
 
     var currentDepths = depths;
-    if (depths &#x26;&#x26; context != depths[0]) {
+    if (depths &amp;&amp; context != depths[0]) {
       currentDepths = [context].concat(depths);
     }
 
-    return fn(container, context, container.helpers, container.partials, options.data || data, blockParams &#x26;&#x26; [options.blockParams
+    return fn(container, context, container.helpers, container.partials, options.data || data, blockParams &amp;&amp; [options.blockParams
 ].concat(blockParams), currentDepths);
   }
 
@@ -6227,8 +6220,8 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     <li>description and source-code<pre class="apidocCodePre">function visitBlock(block) {
   visitSubExpression.call(this, block);
 
-  this.acceptKey(block, &#x27;program&#x27;);
-  this.acceptKey(block, &#x27;inverse&#x27;);
+  this.acceptKey(block, 'program');
+  this.acceptKey(block, 'inverse');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6282,9 +6275,9 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function visitSubExpression(mustache) {
-  this.acceptRequired(mustache, &#x27;path&#x27;);
+  this.acceptRequired(mustache, 'path');
   this.acceptArray(mustache.params);
-  this.acceptKey(mustache, &#x27;hash&#x27;);
+  this.acceptKey(mustache, 'hash');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6301,8 +6294,8 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     <li>description and source-code<pre class="apidocCodePre">function visitBlock(block) {
   visitSubExpression.call(this, block);
 
-  this.acceptKey(block, &#x27;program&#x27;);
-  this.acceptKey(block, &#x27;inverse&#x27;);
+  this.acceptKey(block, 'program');
+  this.acceptKey(block, 'inverse');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6332,7 +6325,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function HashPair(pair) {
-  this.acceptRequired(pair, &#x27;value&#x27;);
+  this.acceptRequired(pair, 'value');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6347,9 +6340,9 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function visitSubExpression(mustache) {
-  this.acceptRequired(mustache, &#x27;path&#x27;);
+  this.acceptRequired(mustache, 'path');
   this.acceptArray(mustache.params);
-  this.acceptKey(mustache, &#x27;hash&#x27;);
+  this.acceptKey(mustache, 'hash');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6392,7 +6385,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     <li>description and source-code<pre class="apidocCodePre">function PartialBlockStatement(partial) {
   visitPartial.call(this, partial);
 
-  this.acceptKey(partial, &#x27;program&#x27;);
+  this.acceptKey(partial, 'program');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6407,9 +6400,9 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function visitPartial(partial) {
-  this.acceptRequired(partial, &#x27;name&#x27;);
+  this.acceptRequired(partial, 'name');
   this.acceptArray(partial.params);
-  this.acceptKey(partial, &#x27;hash&#x27;);
+  this.acceptKey(partial, 'hash');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6465,9 +6458,9 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function visitSubExpression(mustache) {
-  this.acceptRequired(mustache, &#x27;path&#x27;);
+  this.acceptRequired(mustache, 'path');
   this.acceptArray(mustache.params);
-  this.acceptKey(mustache, &#x27;hash&#x27;);
+  this.acceptKey(mustache, 'hash');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6501,7 +6494,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
 
 <span class="apidocCodeCommentSpan">  /* istanbul ignore next: Sanity code */
 </span>  if (!this[object.type]) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;Unknown type: &#x27; + object.type, object);
+    throw new _exception2['default']('Unknown type: ' + object.type, object);
   }
 
   if (this.current) {
@@ -6532,7 +6525,7 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function acceptArray(array) {
-  for (var i = 0, l = array.length; i &#x3c; l; i++) {
+  for (var i = 0, l = array.length; i &lt; l; i++) {
     this.acceptKey(array, i);
 
     if (!array[i]) {
@@ -6559,8 +6552,8 @@ Please update your runtime to a newer version (&#x27; + compilerInfo[1] + &#x27;
   if (this.mutating) {
     // Hacky sanity check: This may have a few false positives for type for the helper
     // methods but will generally do the right thing without a lot of overhead.
-    if (value &#x26;&#x26; !Visitor.prototype[value.type]) {
-      throw new _exception2[&#x27;default&#x27;](&#x27;Unexpected node type &#x22;&#x27; + value.type + &#x27;&#x22; found when accepting &#x27; + name + &#x27; on &#x27; + node.
+    if (value &amp;&amp; !Visitor.prototype[value.type]) {
+      throw new _exception2['default']('Unexpected node type "' + value.type + '" found when accepting ' + name + ' on ' + node.
 type);
     }
     node[name] = value;
@@ -6582,7 +6575,7 @@ type);
   this.acceptKey(node, name);
 
   if (!node[name]) {
-    throw new _exception2[&#x27;default&#x27;](node.type + &#x27; requires &#x27; + name);
+    throw new _exception2['default'](node.type + ' requires ' + name);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6661,7 +6654,7 @@ type);
   } else if (context === false || context == null) {
     return inverse(this);
   } else if (_utils.isArray(context)) {
-    if (context.length &#x3e; 0) {
+    if (context.length &gt; 0) {
       if (options.ids) {
         options.ids = [options.name];
       }
@@ -6671,7 +6664,7 @@ type);
       return inverse(this);
     }
   } else {
-    if (options.data &#x26;&#x26; options.ids) {
+    if (options.data &amp;&amp; options.ids) {
       var data = _utils.createFrame(options.data);
       data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
       options = { data: data };
@@ -6694,18 +6687,18 @@ type);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">each = function (context, options) {
   if (!options) {
-    throw new _exception2[&#x27;default&#x27;](&#x27;Must pass iterator to #each&#x27;);
+    throw new _exception2['default']('Must pass iterator to #each');
   }
 
   var fn = options.fn,
       inverse = options.inverse,
       i = 0,
-      ret = &#x27;&#x27;,
+      ret = '',
       data = undefined,
       contextPath = undefined;
 
-  if (options.data &#x26;&#x26; options.ids) {
-    contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + &#x27;.&#x27;;
+  if (options.data &amp;&amp; options.ids) {
+    contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + '.';
   }
 
   if (_utils.isFunction(context)) {
@@ -6734,9 +6727,9 @@ type);
     });
   }
 
-  if (context &#x26;&#x26; typeof context === &#x27;object&#x27;) {
+  if (context &amp;&amp; typeof context === 'object') {
     if (_utils.isArray(context)) {
-      for (var j = context.length; i &#x3c; j; i++) {
+      for (var j = context.length; i &lt; j; i++) {
         if (i in context) {
           execIteration(i, i, i === context.length - 1);
         }
@@ -6746,7 +6739,7 @@ type);
 
       for (var key in context) {
         if (context.hasOwnProperty(key)) {
-          // We&#x27;re running the iterations one step out of sync so we can detect
+          // We're running the iterations one step out of sync so we can detect
           // the last iteration without have to scan the object twice and create
           // an itermediate keys array.
           if (priorKey !== undefined) {
@@ -6786,7 +6779,7 @@ type);
     return undefined;
   } else {
     // Someone is actually trying to call something, blow up.
-    throw new _exception2[&#x27;default&#x27;](&#x27;Missing helper: &#x22;&#x27; + arguments[arguments.length - 1].name + &#x27;&#x22;&#x27;);
+    throw new _exception2['default']('Missing helper: "' + arguments[arguments.length - 1].name + '"');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6809,7 +6802,7 @@ type);
   // Default behavior is to render the positive path if the value is truthy and not empty.
   // The `includeZero` option may be set to treat the condtional as purely not empty based on the
   // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
-  if (!options.hash.includeZero &#x26;&#x26; !conditional || _utils.isEmpty(conditional)) {
+  if (!options.hash.includeZero &amp;&amp; !conditional || _utils.isEmpty(conditional)) {
     return options.inverse(this);
   } else {
     return options.fn(this);
@@ -6830,14 +6823,14 @@ type);
     <li>description and source-code<pre class="apidocCodePre">log = function () /* message, options */{
   var args = [undefined],
       options = arguments[arguments.length - 1];
-  for (var i = 0; i &#x3c; arguments.length - 1; i++) {
+  for (var i = 0; i &lt; arguments.length - 1; i++) {
     args.push(arguments[i]);
   }
 
   var level = 1;
   if (options.hash.level != null) {
     level = options.hash.level;
-  } else if (options.data &#x26;&#x26; options.data.level != null) {
+  } else if (options.data &amp;&amp; options.data.level != null) {
     level = options.data.level;
   }
   args[0] = level;
@@ -6857,7 +6850,7 @@ type);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">lookup = function (obj, field) {
-  return obj &#x26;&#x26; obj[field];
+  return obj &amp;&amp; obj[field];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6872,7 +6865,7 @@ type);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">unless = function (conditional, options) {
-  return instance.helpers[&#x27;if&#x27;].call(this, conditional, { fn: options.inverse, inverse: options.fn, hash: options.hash });
+  return instance.helpers['if'].call(this, conditional, { fn: options.inverse, inverse: options.fn, hash: options.hash });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6895,14 +6888,14 @@ type);
 
   if (!_utils.isEmpty(context)) {
     var data = options.data;
-    if (options.data &#x26;&#x26; options.ids) {
+    if (options.data &amp;&amp; options.ids) {
       data = _utils.createFrame(options.data);
       data.contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]);
     }
 
     return fn(context, {
       data: data,
-      blockParams: _utils.blockParams([context], [data &#x26;&#x26; data.contextPath])
+      blockParams: _utils.blockParams([context], [data &amp;&amp; data.contextPath])
     });
   } else {
     return options.inverse(this);
@@ -6928,14 +6921,14 @@ type);
     <li>description and source-code<pre class="apidocCodePre">function log(level) {
   level = logger.lookupLevel(level);
 
-  if (typeof console !== &#x27;undefined&#x27; &#x26;&#x26; logger.lookupLevel(logger.level) &#x3c;= level) {
+  if (typeof console !== 'undefined' &amp;&amp; logger.lookupLevel(logger.level) &lt;= level) {
     var method = logger.methodMap[level];
     if (!console[method]) {
       // eslint-disable-line no-console
-      method = &#x27;log&#x27;;
+      method = 'log';
     }
 
-    for (var _len = arguments.length, message = Array(_len &#x3e; 1 ? _len - 1 : 0), _key = 1; _key &#x3c; _len; _key++) {
+    for (var _len = arguments.length, message = Array(_len &gt; 1 ? _len - 1 : 0), _key = 1; _key &lt; _len; _key++) {
       message[_key - 1] = arguments[_key];
     }
 
@@ -6955,9 +6948,9 @@ type);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function lookupLevel(level) {
-  if (typeof level === &#x27;string&#x27;) {
+  if (typeof level === 'string') {
     var levelMap = _utils.indexOf(logger.methodMap, level.toLowerCase());
-    if (levelMap &#x3e;= 0) {
+    if (levelMap &gt;= 0) {
       level = levelMap;
     } else {
       level = parseInt(level, 10);
@@ -6990,20 +6983,20 @@ type);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Exception(message, node) {
-  var loc = node &#x26;&#x26; node.loc,
+  var loc = node &amp;&amp; node.loc,
       line = undefined,
       column = undefined;
   if (loc) {
     line = loc.start.line;
     column = loc.start.column;
 
-    message += &#x27; - &#x27; + line + &#x27;:&#x27; + column;
+    message += ' - ' + line + ':' + column;
   }
 
   var tmp = Error.prototype.constructor.call(this, message);
 
-  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn&#x27;t work.
-  for (var idx = 0; idx &#x3c; errorProps.length; idx++) {
+  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
+  for (var idx = 0; idx &lt; errorProps.length; idx++) {
     this[errorProps[idx]] = tmp[errorProps[idx]];
   }
 
@@ -7016,10 +7009,10 @@ type);
     if (loc) {
       this.lineNumber = line;
 
-      // Work around issue under safari where we can&#x27;t directly set the column value
+      // Work around issue under safari where we can't directly set the column value
       /* istanbul ignore next */
       if (Object.defineProperty) {
-        Object.defineProperty(this, &#x27;column&#x27;, { value: column });
+        Object.defineProperty(this, 'column', { value: column });
       } else {
         this.column = column;
       }
@@ -7079,8 +7072,8 @@ type);
   var hb = new base.HandlebarsEnvironment();
 
   Utils.extend(hb, base);
-  hb.SafeString = _handlebarsSafeString2[&#x27;default&#x27;];
-  hb.Exception = _handlebarsException2[&#x27;default&#x27;];
+  hb.SafeString = _handlebarsSafeString2['default'];
+  hb.Exception = _handlebarsException2['default'];
   hb.Utils = Utils;
   hb.escapeExpression = Utils.escapeExpression;
 
@@ -7121,20 +7114,20 @@ type);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function escapeExpression(string) {
-  if (typeof string !== &#x27;string&#x27;) {
-    // don&#x27;t escape SafeStrings, since they&#x27;re already safe
-    if (string &#x26;&#x26; string.toHTML) {
+  if (typeof string !== 'string') {
+    // don't escape SafeStrings, since they're already safe
+    if (string &amp;&amp; string.toHTML) {
       return string.toHTML();
     } else if (string == null) {
-      return &#x27;&#x27;;
+      return '';
     } else if (!string) {
-      return string + &#x27;&#x27;;
+      return string + '';
     }
 
     // Force a string conversion as this will be done by the append regardless and
     // the regex test will do this transparently behind the scenes, causing issues if
-    // an object&#x27;s to string has escaped characters in it.
-    string = &#x27;&#x27; + string;
+    // an object's to string has escaped characters in it.
+    string = '' + string;
   }
 
   if (!possible.test(string)) {
@@ -7157,14 +7150,14 @@ type);
     <li>description and source-code<pre class="apidocCodePre">function log(level) {
   level = logger.lookupLevel(level);
 
-  if (typeof console !== &#x27;undefined&#x27; &#x26;&#x26; logger.lookupLevel(logger.level) &#x3c;= level) {
+  if (typeof console !== 'undefined' &amp;&amp; logger.lookupLevel(logger.level) &lt;= level) {
     var method = logger.methodMap[level];
     if (!console[method]) {
       // eslint-disable-line no-console
-      method = &#x27;log&#x27;;
+      method = 'log';
     }
 
-    for (var _len = arguments.length, message = Array(_len &#x3e; 1 ? _len - 1 : 0), _key = 1; _key &#x3c; _len; _key++) {
+    for (var _len = arguments.length, message = Array(_len &gt; 1 ? _len - 1 : 0), _key = 1; _key &lt; _len; _key++) {
       message[_key - 1] = arguments[_key];
     }
 
@@ -7236,3 +7229,4 @@ type);
     ]
 </div>
 </div>
+</body></html>
